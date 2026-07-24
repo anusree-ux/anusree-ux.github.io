@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="dark scroll-smooth">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,20 +51,25 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
 
     <style>
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
         }
+
         ::-webkit-scrollbar-track {
             background: #0b0f19;
         }
+
         ::-webkit-scrollbar-thumb {
             background: #1f2937;
             border-radius: 4px;
         }
+
         ::-webkit-scrollbar-thumb:hover {
             background: #374151;
         }
@@ -71,17 +77,21 @@
         .terminal-glow {
             box-shadow: 0 0 20px -5px rgba(34, 197, 94, 0.15);
         }
+
         .pipeline-node {
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
+
         .pipeline-node.active {
             box-shadow: 0 0 20px rgba(34, 197, 94, 0.5);
             border-color: #22c55e;
         }
+
         .pipeline-node.running {
             box-shadow: 0 0 20px rgba(6, 182, 212, 0.6);
             border-color: #06b6d4;
         }
+
         .pipeline-node.failed {
             box-shadow: 0 0 20px rgba(239, 68, 68, 0.5);
             border-color: #ef4444;
@@ -94,98 +104,105 @@
         }
     </style>
 </head>
-<body class="bg-devops-dark text-slate-200 font-sans antialiased selection:bg-devops-500 selection:text-black min-h-screen flex flex-col">
+
+<body
+    class="bg-devops-dark text-slate-200 font-sans antialiased selection:bg-devops-500 selection:text-black min-h-screen flex flex-col">
 
     <header class="sticky top-0 z-50 glass-panel border-b border-gray-800/80">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
             <a href="#hero" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-lg bg-emerald-950 border border-emerald-500/30 flex items-center justify-center group-hover:border-emerald-400 transition-colors">
+                <div
+                    class="w-10 h-10 rounded-lg bg-emerald-950 border border-emerald-500/30 flex items-center justify-center group-hover:border-emerald-400 transition-colors">
                     <i class="fa-solid font-mono text-emerald-400 text-lg">&gt;_</i>
                 </div>
                 <div>
-                    <span class="font-bold text-slate-100 tracking-tight text-lg group-hover:text-emerald-400 transition-colors">Anusree Manoj</span>
-                    <span class="hidden sm:inline-block text-xs block text-slate-400 font-mono">Junior DevOps Engineer</span>
+                    <span
+                        class="font-bold text-slate-100 tracking-tight text-lg group-hover:text-emerald-400 transition-colors">Anusree
+                        Manoj</span>
                 </div>
             </a>
-
-            <!-- System Status Indicator Pill -->
-            <div class="hidden lg:flex items-center gap-2 px-3 py-1.5 rounded-full bg-slate-900/90 border border-emerald-500/20 text-xs font-mono">
-                <span class="relative flex h-2.5 w-2.5">
-                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                  <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
-                </span>
-                <span class="text-slate-300">Status: <strong class="text-emerald-400">Available for Hire</strong></span>
-                <span class="text-slate-600">|</span>
-                <span class="text-slate-400">AWS &amp; K8s Certified</span>
-                <span class="text-slate-600">|</span>
-                <span class="text-slate-400">CS Graduate 2025</span>
-            </div>
 
             <!-- Main Navigation Links -->
             <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
                 <a href="#skills" class="text-slate-300 hover:text-emerald-400 transition-colors">Skills</a>
                 <a href="#projects" class="text-slate-300 hover:text-emerald-400 transition-colors">Projects</a>
                 <a href="#contact" class="text-slate-300 hover:text-emerald-400 transition-colors">Contact</a>
-                <a href="#terminal" class="text-slate-300 hover:text-emerald-400 transition-colors font-mono">&gt; Terminal</a>
-                <a href="#contact" class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold transition-all shadow-lg shadow-emerald-500/20 hover:scale-105">Hire Me</a>
+                <a href="#terminal" class="text-slate-300 hover:text-emerald-400 transition-colors font-mono">&gt;
+                    Terminal</a>
+                <a href="#contact"
+                    class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold transition-all shadow-lg shadow-emerald-500/20 hover:scale-105">Hire
+                    Me</a>
             </nav>
 
             <!-- Mobile Hamburger Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-slate-100" aria-label="Toggle Menu">
+            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-slate-100"
+                aria-label="Toggle Menu">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
 
         <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu" class="hidden md:hidden border-b border-gray-800 bg-slate-900/95 px-4 pt-2 pb-4 space-y-3 font-medium">
+        <div id="mobile-menu"
+            class="hidden md:hidden border-b border-gray-800 bg-slate-900/95 px-4 pt-2 pb-4 space-y-3 font-medium">
             <a href="#skills" class="block py-2 text-slate-300 hover:text-emerald-400">Skills</a>
             <a href="#projects" class="block py-2 text-slate-300 hover:text-emerald-400">Projects</a>
             <a href="#contact" class="block py-2 text-slate-300 hover:text-emerald-400">Contact</a>
             <a href="#terminal" class="block py-2 text-slate-300 hover:text-emerald-400 font-mono">&gt; Terminal</a>
-            <a href="#contact" class="block py-2 text-center rounded-lg bg-emerald-500 text-slate-950 font-bold">Hire Me</a>
+            <a href="#contact" class="block py-2 text-center rounded-lg bg-emerald-500 text-slate-950 font-bold">Hire
+                Me</a>
         </div>
     </header>
 
     <main class="flex-grow">
         <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
             <!-- Background Grid Accent -->
-            <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f293715_1px,transparent_1px),linear-gradient(to_bottom,#1f293715_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none"></div>
+            <div
+                class="absolute inset-0 bg-[linear-gradient(to_right,#1f293715_1px,transparent_1px),linear-gradient(to_bottom,#1f293715_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none">
+            </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-                    
+
                     <!-- Left Hero Content -->
                     <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-medium">
-                            <i class="fa-solid fa-graduation-cap text-emerald-400"></i>
-                            <span>Recent CS Graduate &bull; Aspiring DevOps</span>
+                        <div
+                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-medium">
+                            <span class="relative flex h-2 w-2">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                            </span>
+                            <span class="animate-pulse">Open to work</span>
                         </div>
 
-                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+                        <h1
+                            class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
                             Anusree Manoj
-                            <span class="block text-2xl sm:text-3xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400 mt-2">
-                                Automating Infrastructure &amp; Building Cloud Pipelines
-                            </span>
                         </h1>
 
                         <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                            Hi, I'm <strong class="text-slate-200">Anusree Manoj</strong> — a motivated Junior DevOps Engineer equipped with hands-on experience in Docker, Kubernetes, Terraform, AWS, GitHub Actions CI/CD, and Python/Bash scripting.
+                            Hi, I'm <strong class="text-slate-200">Anusree Manoj</strong> — a motivated Junior DevOps
+                            Engineer equipped with hands-on experience in Docker, Kubernetes, Terraform, AWS, GitHub
+                            Actions CI/CD, and Python/Bash scripting.
                         </p>
 
                         <!-- Action Buttons -->
                         <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
-                            <a href="#projects" class="px-6 py-3.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-all shadow-lg shadow-emerald-500/25 flex items-center gap-2">
+                            <a href="#projects"
+                                class="px-6 py-3.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-all shadow-lg shadow-emerald-500/25 flex items-center gap-2">
                                 <i class="fa-solid fa-folder-open text-sm"></i>
                                 View Hands-On Projects
                             </a>
-                            <a href="#resume" onclick="alert('Resume PDF download functionality would be linked here.')" class="px-6 py-3.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition-all font-mono text-sm flex items-center gap-2">
+                            <a href="#resume" onclick="alert('Resume PDF download functionality would be linked here.')"
+                                class="px-6 py-3.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition-all font-mono text-sm flex items-center gap-2">
                                 <i class="fa-solid fa-file-pdf text-emerald-400"></i>
                                 View Resume
                             </a>
                         </div>
 
                         <!-- Highlights Stats for Fresher -->
-                        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 text-left max-w-lg mx-auto lg:mx-0">
+                        <div
+                            class="grid grid-cols-3 gap-4 pt-6 border-t border-slate-800/80 text-left max-w-lg mx-auto lg:mx-0">
                             <div>
                                 <p class="text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">15+</p>
                                 <p class="text-xs text-slate-400">Cloud Labs &amp; Projects</p>
@@ -202,16 +219,20 @@
                     </div>
 
                     <div class="lg:col-span-5">
-                        <div class="rounded-xl border border-slate-800 bg-slate-900/90 shadow-2xl overflow-hidden terminal-glow">
+                        <div
+                            class="rounded-xl border border-slate-800 bg-slate-900/90 shadow-2xl overflow-hidden terminal-glow">
                             <!-- Terminal Bar Header -->
-                            <div class="px-4 py-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
+                            <div
+                                class="px-4 py-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
                                 <div class="flex items-center gap-2">
                                     <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
                                     <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
                                     <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                                    <span class="ml-2 font-mono text-xs text-slate-400">devops-homelab ~ education</span>
+                                    <span class="ml-2 font-mono text-xs text-slate-400">devops-homelab ~
+                                        education</span>
                                 </div>
-                                <span class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">VERIFIED</span>
+                                <span
+                                    class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">VERIFIED</span>
                             </div>
 
                             <!-- Terminal Quick Profile Stream -->
@@ -252,8 +273,10 @@
                                 </div>
 
                                 <!-- Shell Prompt -->
-                                <div class="pt-2 text-slate-400 text-[11px] flex items-center justify-between border-t border-slate-800/80">
-                                    <span class="text-emerald-400">anusree@laptop ~ % <span class="text-slate-200">cat education.txt</span></span>
+                                <div
+                                    class="pt-2 text-slate-400 text-[11px] flex items-center justify-between border-t border-slate-800/80">
+                                    <span class="text-emerald-400">anusree@laptop ~ % <span class="text-slate-200">cat
+                                            education.txt</span></span>
                                     <span class="animate-pulse font-bold text-emerald-400">|</span>
                                 </div>
                             </div>
@@ -267,100 +290,166 @@
         <section id="skills" class="py-16 bg-slate-900/50 border-y border-slate-800/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">Technical Proficiency</h2>
+                    <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">Technical
+                        Proficiency</h2>
                     <p class="text-3xl font-extrabold text-white mt-1">Core Skill Sets &amp; Tools</p>
-                    <p class="text-slate-400 mt-2 text-sm">Technologies practiced through university coursework, certifications, and hands-on laboratory projects.</p>
+                    <p class="text-slate-400 mt-2 text-sm">Technologies practiced through university coursework,
+                        certifications, and hands-on laboratory projects.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                    
+
                     <!-- Cloud & Infrastructure -->
-                    <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500/40 transition-all">
-                        <div class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl mb-4">
+                    <div
+                        class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-emerald-500/40 transition-all">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl mb-4">
                             <i class="fa-solid fa-cloud"></i>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">Cloud &amp; Infrastructure as Code</h3>
-                        <p class="text-slate-400 text-xs mb-4">Provisioning cloud infrastructure declaratively and managing remote state.</p>
+                        <p class="text-slate-400 text-xs mb-4">Provisioning cloud infrastructure declaratively and
+                            managing remote state.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">AWS (EC2, EKS, VPC, S3)</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Terraform Basics</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">CloudFormation</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">IAM &amp; Security Groups</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">AWS
+                                (EC2, EKS, VPC, S3)</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Terraform
+                                Basics</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">CloudFormation</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">IAM
+                                &amp; Security Groups</span>
                         </div>
                     </div>
 
                     <!-- Containers & Kubernetes -->
-                    <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 transition-all">
-                        <div class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl mb-4">
+                    <div
+                        class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-cyan-500/40 transition-all">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl mb-4">
                             <i class="fa-solid fa-dharmachakra"></i>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">Containers &amp; Orchestration</h3>
-                        <p class="text-slate-400 text-xs mb-4">Packaging applications into Docker containers and managing Kubernetes deployments.</p>
+                        <p class="text-slate-400 text-xs mb-4">Packaging applications into Docker containers and
+                            managing Kubernetes deployments.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Docker / Docker Compose</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Kubernetes (Minikube/EKS)</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Helm Charts</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">ArgoCD (GitOps)</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Docker
+                                / Docker Compose</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Kubernetes
+                                (Minikube/EKS)</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Helm
+                                Charts</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">ArgoCD
+                                (GitOps)</span>
                         </div>
                     </div>
 
                     <!-- CI/CD & Automation -->
-                    <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-teal-500/40 transition-all">
-                        <div class="w-12 h-12 rounded-lg bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-300 text-xl mb-4">
+                    <div
+                        class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-teal-500/40 transition-all">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-teal-500/10 border border-teal-500/30 flex items-center justify-center text-teal-300 text-xl mb-4">
                             <i class="fa-solid fa-diagram-project"></i>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">CI/CD &amp; Version Control</h3>
-                        <p class="text-slate-400 text-xs mb-4">Automating code building, testing, and multi-stage container deployment pipelines.</p>
+                        <p class="text-slate-400 text-xs mb-4">Automating code building, testing, and multi-stage
+                            container deployment pipelines.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">GitHub Actions</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Git / GitHub Workflows</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">GitLab CI Fundamentals</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Webhook Triggers</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">GitHub
+                                Actions</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Git
+                                / GitHub Workflows</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">GitLab
+                                CI Fundamentals</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Webhook
+                                Triggers</span>
                         </div>
                     </div>
 
                     <!-- Monitoring & Observability -->
-                    <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all">
-                        <div class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl mb-4">
+                    <div
+                        class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-amber-500/40 transition-all">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl mb-4">
                             <i class="fa-solid fa-chart-line"></i>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">Monitoring &amp; Telemetry</h3>
-                        <p class="text-slate-400 text-xs mb-4">Collecting container metrics, creating Grafana dashboards, and basic log monitoring.</p>
+                        <p class="text-slate-400 text-xs mb-4">Collecting container metrics, creating Grafana
+                            dashboards, and basic log monitoring.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Prometheus</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Grafana Dashboards</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">AWS CloudWatch</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Loki Logs</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Prometheus</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Grafana
+                                Dashboards</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">AWS
+                                CloudWatch</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Loki
+                                Logs</span>
                         </div>
                     </div>
 
                     <!-- Scripting & Linux -->
-                    <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500/40 transition-all">
-                        <div class="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl mb-4">
+                    <div
+                        class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-blue-500/40 transition-all">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl mb-4">
                             <i class="fa-solid fa-terminal"></i>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">Linux Systems &amp; Scripting</h3>
-                        <p class="text-slate-400 text-xs mb-4">System administration, shell scripting, automation scripts, and REST APIs.</p>
+                        <p class="text-slate-400 text-xs mb-4">System administration, shell scripting, automation
+                            scripts, and REST APIs.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Bash / Shell Scripting</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Python (Boto3 API)</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Linux Administration</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">YAML &amp; JSON</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Bash
+                                / Shell Scripting</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Python
+                                (Boto3 API)</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Linux
+                                Administration</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">YAML
+                                &amp; JSON</span>
                         </div>
                     </div>
 
                     <!-- DevSecOps & Fundamentals -->
-                    <div class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-purple-500/40 transition-all">
-                        <div class="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl mb-4">
+                    <div
+                        class="p-6 rounded-xl bg-slate-900 border border-slate-800 hover:border-purple-500/40 transition-all">
+                        <div
+                            class="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl mb-4">
                             <i class="fa-solid fa-shield-halved"></i>
                         </div>
                         <h3 class="text-lg font-bold text-white mb-2">DevSecOps &amp; Security</h3>
-                        <p class="text-slate-400 text-xs mb-4">Container vulnerability scanning, secret hygiene, and non-root Docker builds.</p>
+                        <p class="text-slate-400 text-xs mb-4">Container vulnerability scanning, secret hygiene, and
+                            non-root Docker builds.</p>
                         <div class="flex flex-wrap gap-2">
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Trivy Vulnerability Scan</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">GitHub Secrets</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">OWASP Top 10 Awareness</span>
-                            <span class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">SSH &amp; Key Pairs</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">Trivy
+                                Vulnerability Scan</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">GitHub
+                                Secrets</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">OWASP
+                                Top 10 Awareness</span>
+                            <span
+                                class="px-2.5 py-1 rounded bg-slate-800 text-xs font-mono text-slate-300 border border-slate-700">SSH
+                                &amp; Key Pairs</span>
                         </div>
                     </div>
 
@@ -371,23 +460,30 @@
         <section id="projects" class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">Practical Experience</h2>
+                    <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">Practical
+                        Experience</h2>
                     <p class="text-3xl font-extrabold text-white mt-1">Hands-On Capstone Projects</p>
-                    <p class="text-slate-400 text-sm mt-2">Full-stack infrastructure projects built to solve real-world continuous deployment and cloud automation challenges.</p>
+                    <p class="text-slate-400 text-sm mt-2">Full-stack infrastructure projects built to solve real-world
+                        continuous deployment and cloud automation challenges.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    
+
                     <!-- Project 1 -->
-                    <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-emerald-500/50 transition-all flex flex-col justify-between">
+                    <div
+                        class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-emerald-500/50 transition-all flex flex-col justify-between">
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-3">
-                                <span class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">End-To-End GitOps</span>
+                                <span
+                                    class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">End-To-End
+                                    GitOps</span>
                                 <span class="text-xs text-slate-500 font-mono">GitHub Actions / ArgoCD</span>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Automated Microservices GitOps Pipeline</h3>
                             <p class="text-slate-400 text-xs leading-relaxed mb-4">
-                                Engineered a complete CI/CD workflow that automatically builds multi-arch Docker images, runs Trivy vulnerability checks, and triggers ArgoCD sync to Kubernetes upon code commits.
+                                Engineered a complete CI/CD workflow that automatically builds multi-arch Docker images,
+                                runs Trivy vulnerability checks, and triggers ArgoCD sync to Kubernetes upon code
+                                commits.
                             </p>
 
                             <!-- Results Badges -->
@@ -409,22 +505,27 @@
                                 <i class="fa-solid fa-dharmachakra text-slate-400" title="Kubernetes"></i>
                                 <i class="fa-brands fa-github text-slate-400" title="GitHub Actions"></i>
                             </div>
-                            <button onclick="openModal('gitops-modal')" class="text-xs font-mono text-emerald-400 hover:underline flex items-center gap-1">
+                            <button onclick="openModal('gitops-modal')"
+                                class="text-xs font-mono text-emerald-400 hover:underline flex items-center gap-1">
                                 Read Project Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </button>
                         </div>
                     </div>
 
                     <!-- Project 2 -->
-                    <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all flex flex-col justify-between">
+                    <div
+                        class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-cyan-500/50 transition-all flex flex-col justify-between">
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-3">
-                                <span class="px-2.5 py-1 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-bold">Cloud Infrastructure</span>
+                                <span
+                                    class="px-2.5 py-1 rounded bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-mono font-bold">Cloud
+                                    Infrastructure</span>
                                 <span class="text-xs text-slate-500 font-mono">Terraform / AWS</span>
                             </div>
                             <h3 class="text-xl font-bold text-white mb-2">Automated AWS Infrastructure Provisioning</h3>
                             <p class="text-slate-400 text-xs leading-relaxed mb-4">
-                                Modular Terraform code defining custom VPCs, EKS clusters, S3 buckets with remote backend state storage, and DynamoDB lock tables for team collaboration.
+                                Modular Terraform code defining custom VPCs, EKS clusters, S3 buckets with remote
+                                backend state storage, and DynamoDB lock tables for team collaboration.
                             </p>
 
                             <!-- Results Badges -->
@@ -445,29 +546,35 @@
                                 <i class="fa-brands fa-aws text-slate-400"></i>
                                 <i class="fa-solid fa-cubes text-slate-400"></i>
                             </div>
-                            <button onclick="openModal('terraform-modal')" class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">
+                            <button onclick="openModal('terraform-modal')"
+                                class="text-xs font-mono text-cyan-400 hover:underline flex items-center gap-1">
                                 Read Project Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </button>
                         </div>
                     </div>
 
                     <!-- Project 3 -->
-                    <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-500/50 transition-all flex flex-col justify-between">
+                    <div
+                        class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-amber-500/50 transition-all flex flex-col justify-between">
                         <div class="p-6">
                             <div class="flex items-center justify-between mb-3">
-                                <span class="px-2.5 py-1 rounded bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold">Observability</span>
+                                <span
+                                    class="px-2.5 py-1 rounded bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono font-bold">Observability</span>
                                 <span class="text-xs text-slate-500 font-mono">Prometheus / Helm</span>
                             </div>
-                            <h3 class="text-xl font-bold text-white mb-2">Kubernetes Monitoring &amp; Alerting Stack</h3>
+                            <h3 class="text-xl font-bold text-white mb-2">Kubernetes Monitoring &amp; Alerting Stack
+                            </h3>
                             <p class="text-slate-400 text-xs leading-relaxed mb-4">
-                                Deployed kube-prometheus-stack via Helm charts to track cluster CPU/Memory metrics, set up custom Grafana dashboards, and configured Discord alert notifications.
+                                Deployed kube-prometheus-stack via Helm charts to track cluster CPU/Memory metrics, set
+                                up custom Grafana dashboards, and configured Discord alert notifications.
                             </p>
 
                             <!-- Results Badges -->
                             <div class="space-y-2 mb-4 bg-slate-950 p-3 rounded-lg border border-slate-800/80">
                                 <div class="flex justify-between text-xs">
                                     <span class="text-slate-400">Metrics Tracked:</span>
-                                    <span class="text-amber-400 font-mono font-bold">Node CPU, Memory, Pod Restarts</span>
+                                    <span class="text-amber-400 font-mono font-bold">Node CPU, Memory, Pod
+                                        Restarts</span>
                                 </div>
                                 <div class="flex justify-between text-xs">
                                     <span class="text-slate-400">Alert Routing:</span>
@@ -481,7 +588,8 @@
                                 <i class="fa-solid fa-chart-line text-slate-400"></i>
                                 <i class="fa-solid fa-bell text-slate-400"></i>
                             </div>
-                            <button onclick="openModal('observability-modal')" class="text-xs font-mono text-amber-400 hover:underline flex items-center gap-1">
+                            <button onclick="openModal('observability-modal')"
+                                class="text-xs font-mono text-amber-400 hover:underline flex items-center gap-1">
                                 Read Project Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </button>
                         </div>
@@ -494,49 +602,72 @@
         <section id="terminal" class="py-20 bg-slate-900/60 border-y border-slate-800/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-10">
-                    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono font-medium mb-3">
+                    <div
+                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono font-medium mb-3">
                         <i class="fa-solid fa-terminal"></i> Live Shell Interface
                     </div>
                     <h2 class="text-3xl font-extrabold text-white">Interactive DevOps Shell</h2>
-                    <p class="text-slate-400 text-sm mt-2">Test my CLI skills! Type commands directly or click the quick command shortcuts below to inspect cluster status, terraform plans, or docker stats.</p>
+                    <p class="text-slate-400 text-sm mt-2">Test my CLI skills! Type commands directly or click the quick
+                        command shortcuts below to inspect cluster status, terraform plans, or docker stats.</p>
                 </div>
 
                 <!-- Terminal Window -->
-                <div class="max-w-4xl mx-auto bg-slate-950 rounded-xl border border-slate-800 shadow-2xl overflow-hidden terminal-glow">
+                <div
+                    class="max-w-4xl mx-auto bg-slate-950 rounded-xl border border-slate-800 shadow-2xl overflow-hidden terminal-glow">
                     <!-- Top Window Controls -->
                     <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
                         <div class="flex items-center gap-2">
                             <div class="w-3 h-3 rounded-full bg-red-500 cursor-pointer" onclick="clearTerminal()"></div>
                             <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
                             <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            <span class="ml-2 font-mono text-xs text-slate-400">bash &mdash; anusree@devops-lab: ~ (zsh)</span>
+                            <span class="ml-2 font-mono text-xs text-slate-400">bash &mdash; anusree@devops-lab: ~
+                                (zsh)</span>
                         </div>
-                        <button onclick="clearTerminal()" class="text-xs font-mono text-slate-500 hover:text-slate-300">Clear Screen</button>
+                        <button onclick="clearTerminal()"
+                            class="text-xs font-mono text-slate-500 hover:text-slate-300">Clear Screen</button>
                     </div>
 
                     <!-- Quick Command Helper Chips -->
-                    <div class="px-4 py-2 bg-slate-900/40 border-b border-slate-800/80 flex flex-wrap items-center gap-2 text-xs font-mono text-slate-400">
+                    <div
+                        class="px-4 py-2 bg-slate-900/40 border-b border-slate-800/80 flex flex-wrap items-center gap-2 text-xs font-mono text-slate-400">
                         <span class="text-slate-500">Quick commands:</span>
-                        <button onclick="runCommand('kubectl get pods')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400">kubectl get pods</button>
-                        <button onclick="runCommand('terraform plan')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-400">terraform plan</button>
-                        <button onclick="runCommand('docker ps')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-amber-400">docker ps</button>
-                        <button onclick="runCommand('cat resume.txt')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-purple-400">cat resume.txt</button>
-                        <button onclick="runCommand('help')" class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">help</button>
+                        <button onclick="runCommand('kubectl get pods')"
+                            class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400">kubectl get
+                            pods</button>
+                        <button onclick="runCommand('terraform plan')"
+                            class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-400">terraform
+                            plan</button>
+                        <button onclick="runCommand('docker ps')"
+                            class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-amber-400">docker
+                            ps</button>
+                        <button onclick="runCommand('cat resume.txt')"
+                            class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-purple-400">cat
+                            resume.txt</button>
+                        <button onclick="runCommand('help')"
+                            class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">help</button>
                     </div>
 
                     <!-- Output Console Area -->
-                    <div id="terminal-output" class="p-5 font-mono text-xs text-slate-300 h-80 overflow-y-auto space-y-3 leading-relaxed">
+                    <div id="terminal-output"
+                        class="p-5 font-mono text-xs text-slate-300 h-80 overflow-y-auto space-y-3 leading-relaxed">
                         <div>
-                            <span class="text-emerald-400">Welcome to Anusree Manoj's Junior DevOps Interactive Shell v1.0.0</span><br>
-                            <span class="text-slate-500">Type <span class="text-emerald-300">help</span> or click any command chip above to start exploring!</span>
+                            <span class="text-emerald-400">Welcome to Anusree Manoj's Junior DevOps Interactive Shell
+                                v1.0.0</span><br>
+                            <span class="text-slate-500">Type <span class="text-emerald-300">help</span> or click any
+                                command chip above to start exploring!</span>
                         </div>
                     </div>
 
                     <!-- Command Input Bar -->
-                    <div class="px-5 py-3 bg-slate-900/90 border-t border-slate-800 flex items-center gap-2 font-mono text-xs">
+                    <div
+                        class="px-5 py-3 bg-slate-900/90 border-t border-slate-800 flex items-center gap-2 font-mono text-xs">
                         <span class="text-emerald-400 font-bold">anusree@devops-lab:~$</span>
-                        <input type="text" id="terminal-input" class="flex-grow bg-transparent text-slate-100 outline-none focus:ring-0 border-none font-mono text-xs placeholder-slate-600" placeholder="Type a command (e.g. kubectl get pods, terraform plan, cat resume.txt)..." autocomplete="off" onkeydown="handleTerminalKeydown(event)">
-                        <button onclick="submitTerminalInput()" class="px-3 py-1 bg-emerald-500 text-slate-950 font-bold rounded hover:bg-emerald-400 text-xs">Run</button>
+                        <input type="text" id="terminal-input"
+                            class="flex-grow bg-transparent text-slate-100 outline-none focus:ring-0 border-none font-mono text-xs placeholder-slate-600"
+                            placeholder="Type a command (e.g. kubectl get pods, terraform plan, cat resume.txt)..."
+                            autocomplete="off" onkeydown="handleTerminalKeydown(event)">
+                        <button onclick="submitTerminalInput()"
+                            class="px-3 py-1 bg-emerald-500 text-slate-950 font-bold rounded hover:bg-emerald-400 text-xs">Run</button>
                     </div>
                 </div>
             </div>
@@ -544,42 +675,55 @@
 
         <section class="py-16 border-b border-slate-800/80">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                
+
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-                    
+
                     <!-- Left: Certifications -->
                     <div>
-                        <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase mb-2">Verified Credentials</h2>
+                        <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase mb-2">Verified
+                            Credentials</h2>
                         <h3 class="text-2xl font-bold text-white mb-6">Certifications</h3>
 
                         <div class="space-y-4">
-                            <div class="p-4 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-emerald-500/40 transition-all">
-                                <div class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl">
+                            <div
+                                class="p-4 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-emerald-500/40 transition-all">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl">
                                     <i class="fa-brands fa-aws"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-sm font-bold text-white">AWS Certified Solutions Architect &ndash; Associate</h4>
-                                    <p class="text-xs text-slate-400 font-mono mt-0.5">Amazon Web Services &bull; Verified</p>
+                                    <h4 class="text-sm font-bold text-white">AWS Certified Solutions Architect &ndash;
+                                        Associate</h4>
+                                    <p class="text-xs text-slate-400 font-mono mt-0.5">Amazon Web Services &bull;
+                                        Verified</p>
                                 </div>
                             </div>
 
-                            <div class="p-4 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-emerald-500/40 transition-all">
-                                <div class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl">
+                            <div
+                                class="p-4 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-emerald-500/40 transition-all">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl">
                                     <i class="fa-solid fa-dharmachakra"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-sm font-bold text-white">Certified Kubernetes Administrator (CKA Candidate)</h4>
-                                    <p class="text-xs text-slate-400 font-mono mt-0.5">Linux Foundation &bull; Preparing / Exam Scheduled</p>
+                                    <h4 class="text-sm font-bold text-white">Certified Kubernetes Administrator (CKA
+                                        Candidate)</h4>
+                                    <p class="text-xs text-slate-400 font-mono mt-0.5">Linux Foundation &bull; Preparing
+                                        / Exam Scheduled</p>
                                 </div>
                             </div>
 
-                            <div class="p-4 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-emerald-500/40 transition-all">
-                                <div class="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl">
+                            <div
+                                class="p-4 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-emerald-500/40 transition-all">
+                                <div
+                                    class="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl">
                                     <i class="fa-solid fa-cubes"></i>
                                 </div>
                                 <div>
-                                    <h4 class="text-sm font-bold text-white">HashiCorp Certified: Terraform Associate</h4>
-                                    <p class="text-xs text-slate-400 font-mono mt-0.5">HashiCorp &bull; Infrastructure as Code</p>
+                                    <h4 class="text-sm font-bold text-white">HashiCorp Certified: Terraform Associate
+                                    </h4>
+                                    <p class="text-xs text-slate-400 font-mono mt-0.5">HashiCorp &bull; Infrastructure
+                                        as Code</p>
                                 </div>
                             </div>
                         </div>
@@ -587,37 +731,52 @@
 
                     <!-- Right: Education -->
                     <div>
-                        <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase mb-2">Academic Background</h2>
+                        <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase mb-2">Academic
+                            Background</h2>
                         <h3 class="text-2xl font-bold text-white mb-6">Education</h3>
 
                         <div class="space-y-4">
-                            <div class="p-5 bg-slate-900 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition-all space-y-2">
+                            <div
+                                class="p-5 bg-slate-900 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition-all space-y-2">
                                 <div class="flex justify-between items-start">
                                     <div>
-                                        <h4 class="text-base font-bold text-white">SRM Institute of Science and Technology, Chennai</h4>
-                                        <p class="text-xs text-emerald-400 font-mono mt-0.5">B.Sc Computer Science &bull; 2023 &ndash; 2026</p>
+                                        <h4 class="text-base font-bold text-white">SRM Institute of Science and
+                                            Technology, Chennai</h4>
+                                        <p class="text-xs text-emerald-400 font-mono mt-0.5">B.Sc Computer Science
+                                            &bull; 2023 &ndash; 2026</p>
                                     </div>
-                                    <span class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-mono font-bold">CGPA: 9.77</span>
+                                    <span
+                                        class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-mono font-bold">CGPA:
+                                        9.77</span>
                                 </div>
                             </div>
 
-                            <div class="p-5 bg-slate-900 rounded-xl border border-slate-800 hover:border-cyan-500/40 transition-all space-y-2">
+                            <div
+                                class="p-5 bg-slate-900 rounded-xl border border-slate-800 hover:border-cyan-500/40 transition-all space-y-2">
                                 <div class="flex justify-between items-start">
                                     <div>
-                                        <h4 class="text-base font-bold text-white">Union Higher Secondary School, Mambra</h4>
-                                        <p class="text-xs text-cyan-400 font-mono mt-0.5">Higher Secondary Education &bull; 2022</p>
+                                        <h4 class="text-base font-bold text-white">Union Higher Secondary School, Mambra
+                                        </h4>
+                                        <p class="text-xs text-cyan-400 font-mono mt-0.5">Higher Secondary Education
+                                            &bull; 2022</p>
                                     </div>
-                                    <span class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-xs font-mono font-bold">97.42 %</span>
+                                    <span
+                                        class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-xs font-mono font-bold">97.42
+                                        %</span>
                                 </div>
                             </div>
 
-                            <div class="p-5 bg-slate-900 rounded-xl border border-slate-800 hover:border-teal-500/40 transition-all space-y-2">
+                            <div
+                                class="p-5 bg-slate-900 rounded-xl border border-slate-800 hover:border-teal-500/40 transition-all space-y-2">
                                 <div class="flex justify-between items-start">
                                     <div>
                                         <h4 class="text-base font-bold text-white">St. Joseph’s H.S, Meloor</h4>
-                                        <p class="text-xs text-teal-300 font-mono mt-0.5">High School Education &bull; 2020</p>
+                                        <p class="text-xs text-teal-300 font-mono mt-0.5">High School Education &bull;
+                                            2020</p>
                                     </div>
-                                    <span class="px-2.5 py-1 rounded bg-teal-500/10 text-teal-300 text-xs font-mono font-bold">99.9 %</span>
+                                    <span
+                                        class="px-2.5 py-1 rounded bg-teal-500/10 text-teal-300 text-xs font-mono font-bold">99.9
+                                        %</span>
                                 </div>
                             </div>
                         </div>
@@ -630,30 +789,36 @@
 
         <section id="contact" class="py-20 relative">
             <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
-                    
+                <div
+                    class="bg-slate-900 border border-slate-800 rounded-2xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
+
                     <div class="text-center max-w-2xl mx-auto mb-8">
-                        <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">Let's Connect</h2>
+                        <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">Let's Connect
+                        </h2>
                         <h3 class="text-3xl font-extrabold text-white mt-1">Get In Touch / Hire Me</h3>
-                        <p class="text-slate-400 text-sm mt-2">I am actively seeking entry-level DevOps Engineer, Junior Cloud Engineer, or Associate SRE roles. Feel free to reach out!</p>
+                        <p class="text-slate-400 text-sm mt-2">I am actively seeking entry-level DevOps Engineer, Junior
+                            Cloud Engineer, or Associate SRE roles. Feel free to reach out!</p>
                     </div>
 
                     <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label class="block text-xs font-mono text-slate-300 mb-2">Your Name *</label>
-                                <input type="text" required id="form-name" placeholder="Recruiter / Hiring Manager" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+                                <input type="text" required id="form-name" placeholder="Recruiter / Hiring Manager"
+                                    class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
                             </div>
 
                             <div>
                                 <label class="block text-xs font-mono text-slate-300 mb-2">Email Address *</label>
-                                <input type="email" required id="form-email" placeholder="name@company.com" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+                                <input type="email" required id="form-email" placeholder="name@company.com"
+                                    class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
                             </div>
                         </div>
 
                         <div>
                             <label class="block text-xs font-mono text-slate-300 mb-2">Inquiry Type</label>
-                            <select id="form-scope" class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
+                            <select id="form-scope"
+                                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-emerald-500">
                                 <option value="fulltime">Full-time Entry-Level / Junior DevOps Role</option>
                                 <option value="internship">DevOps / Cloud Infrastructure Internship</option>
                                 <option value="networking">General Networking &amp; Mentorship</option>
@@ -662,22 +827,29 @@
 
                         <div>
                             <label class="block text-xs font-mono text-slate-300 mb-2">Message *</label>
-                            <textarea required id="form-message" rows="4" placeholder="Hi Anusree, we have an open Junior DevOps position at our team and would love to review your profile..." class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-emerald-500"></textarea>
+                            <textarea required id="form-message" rows="4"
+                                placeholder="Hi Anusree, we have an open Junior DevOps position at our team and would love to review your profile..."
+                                class="w-full bg-slate-950 border border-slate-800 rounded-lg px-4 py-3 text-sm text-slate-200 focus:outline-none focus:border-emerald-500"></textarea>
                         </div>
 
-                        <button type="submit" id="form-submit-btn" class="w-full py-4 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2">
+                        <button type="submit" id="form-submit-btn"
+                            class="w-full py-4 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-extrabold text-sm transition-all shadow-lg shadow-emerald-500/25 flex items-center justify-center gap-2">
                             <i class="fa-solid fa-paper-plane"></i> Send Message
                         </button>
                     </form>
 
                     <!-- Submission Confirmation Box -->
                     <div id="form-success" class="hidden text-center py-8 space-y-4">
-                        <div class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mx-auto">
+                        <div
+                            class="w-16 h-16 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl mx-auto">
                             <i class="fa-solid fa-check"></i>
                         </div>
                         <h4 class="text-xl font-bold text-white">Message Sent Successfully!</h4>
-                        <p class="text-slate-400 text-xs font-mono">Thank you for reaching out! I will respond promptly.</p>
-                        <button onclick="resetContactForm()" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono rounded-lg">Send Another Message</button>
+                        <p class="text-slate-400 text-xs font-mono">Thank you for reaching out! I will respond promptly.
+                        </p>
+                        <button onclick="resetContactForm()"
+                            class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono rounded-lg">Send
+                            Another Message</button>
                     </div>
 
                 </div>
@@ -685,14 +857,20 @@
         </section>
     </main>
 
-    <div id="gitops-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+    <div id="gitops-modal"
+        class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div
+            class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-emerald-400 font-mono">Microservices GitOps Deployment Project</h3>
-                <button onclick="closeModal('gitops-modal')" class="text-slate-400 hover:text-white text-xl">&times;</button>
+                <button onclick="closeModal('gitops-modal')"
+                    class="text-slate-400 hover:text-white text-xl">&times;</button>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed">
-                Created a GitHub Actions pipeline that triggers on code pushes. It automatically runs pytest unit tests, lints Python code with Flake8, scans the Docker image using Trivy, and pushes the image to Docker Hub. ArgoCD detects the change in the Helm repository and deploys it automatically to a local Kubernetes cluster.
+                Created a GitHub Actions pipeline that triggers on code pushes. It automatically runs pytest unit tests,
+                lints Python code with Flake8, scans the Docker image using Trivy, and pushes the image to Docker Hub.
+                ArgoCD detects the change in the Helm repository and deploys it automatically to a local Kubernetes
+                cluster.
             </p>
             <div class="bg-slate-950 p-3 rounded font-mono text-xs text-emerald-400">
                 # Sample ArgoCD Application Config<br>
@@ -708,70 +886,89 @@
                 &nbsp;&nbsp;&nbsp;&nbsp;path: helm-chart
             </div>
             <div class="text-right">
-                <button onclick="closeModal('gitops-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded text-slate-200">Close</button>
+                <button onclick="closeModal('gitops-modal')"
+                    class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded text-slate-200">Close</button>
             </div>
         </div>
     </div>
 
-    <div id="terraform-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+    <div id="terraform-modal"
+        class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div
+            class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-cyan-400 font-mono">Terraform AWS Provisioning Details</h3>
-                <button onclick="closeModal('terraform-modal')" class="text-slate-400 hover:text-white text-xl">&times;</button>
+                <button onclick="closeModal('terraform-modal')"
+                    class="text-slate-400 hover:text-white text-xl">&times;</button>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed">
-                Wrote modular Terraform code from scratch using official AWS modules. Configured state storage on S3 with server-side encryption and DynamoDB table for state locking to prevent concurrent state corruption.
+                Wrote modular Terraform code from scratch using official AWS modules. Configured state storage on S3
+                with server-side encryption and DynamoDB table for state locking to prevent concurrent state corruption.
             </p>
             <div class="text-right">
-                <button onclick="closeModal('terraform-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded text-slate-200">Close</button>
+                <button onclick="closeModal('terraform-modal')"
+                    class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded text-slate-200">Close</button>
             </div>
         </div>
     </div>
 
-    <div id="observability-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
+    <div id="observability-modal"
+        class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div
+            class="bg-slate-900 border border-slate-800 rounded-xl max-w-2xl w-full p-6 space-y-4 max-h-[90vh] overflow-y-auto">
             <div class="flex justify-between items-center border-b border-slate-800 pb-3">
                 <h3 class="text-lg font-bold text-amber-400 font-mono">Kubernetes Observability Project</h3>
-                <button onclick="closeModal('observability-modal')" class="text-slate-400 hover:text-white text-xl">&times;</button>
+                <button onclick="closeModal('observability-modal')"
+                    class="text-slate-400 hover:text-white text-xl">&times;</button>
             </div>
             <p class="text-xs text-slate-300 leading-relaxed">
-                Deployed Prometheus and Grafana via Helm charts. Configured metrics scraping for Kubernetes pods and Node Exporter. Built a custom Grafana dashboard displaying real-time memory usage and pod restart counts.
+                Deployed Prometheus and Grafana via Helm charts. Configured metrics scraping for Kubernetes pods and
+                Node Exporter. Built a custom Grafana dashboard displaying real-time memory usage and pod restart
+                counts.
             </p>
             <div class="text-right">
-                <button onclick="closeModal('observability-modal')" class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded text-slate-200">Close</button>
+                <button onclick="closeModal('observability-modal')"
+                    class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded text-slate-200">Close</button>
             </div>
         </div>
     </div>
 
     <footer class="bg-slate-950 border-t border-slate-800 py-12 text-slate-400 text-xs">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+        <div
+            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center gap-3">
-                <div class="w-8 h-8 rounded bg-emerald-950 border border-emerald-500/30 flex items-center justify-center font-mono text-emerald-400 font-bold">
+                <div
+                    class="w-8 h-8 rounded bg-emerald-950 border border-emerald-500/30 flex items-center justify-center font-mono text-emerald-400 font-bold">
                     &gt;_
                 </div>
                 <div>
-                    <span class="font-bold text-slate-200 block text-sm">Anusree Manoj &bull; Junior DevOps Portfolio</span>
+                    <span class="font-bold text-slate-200 block text-sm">Anusree Manoj &bull; Junior DevOps
+                        Portfolio</span>
                     <span class="text-slate-500 font-mono">Ready to contribute to your engineering team</span>
                 </div>
             </div>
 
             <!-- Social Links -->
             <div class="flex items-center gap-6 text-lg">
-                <a href="https://github.com" target="_blank" rel="noopener" class="text-slate-400 hover:text-emerald-400 transition-colors" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener" class="text-slate-400 hover:text-emerald-400 transition-colors" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://aws.amazon.com" target="_blank" rel="noopener" class="text-slate-400 hover:text-emerald-400 transition-colors" title="AWS Credentials"><i class="fa-brands fa-aws"></i></a>
-                <a href="https://docker.com" target="_blank" rel="noopener" class="text-slate-400 hover:text-emerald-400 transition-colors" title="Docker Hub"><i class="fa-brands fa-docker"></i></a>
+                <a href="https://github.com" target="_blank" rel="noopener"
+                    class="text-slate-400 hover:text-emerald-400 transition-colors" title="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://linkedin.com" target="_blank" rel="noopener"
+                    class="text-slate-400 hover:text-emerald-400 transition-colors" title="LinkedIn"><i
+                        class="fa-brands fa-linkedin"></i></a>
+                <a href="mailto:anusreemanoj@gmail.com" class="text-slate-400 hover:text-emerald-400 transition-colors"
+                    title="Gmail"><i class="fa-solid fa-envelope"></i></a>
             </div>
 
             <div class="font-mono text-slate-500 text-[11px]">
-                &copy; 2026 Anusree Manoj. Built with Tailwind CSS &amp; JavaScript.
+                &copy; 2026 Anusree Manoj.
             </div>
         </div>
     </footer>
 
     <script>
         // Mobile Menu Toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
         });
@@ -906,7 +1103,7 @@ helm install kube-prometheus prometheus-community/kube-prometheus-stack \\
             logBox.innerHTML = '';
 
             const commitEl = document.getElementById('pipeline-commit');
-            const randomCommit = '#' + Math.floor(Math.random()*16777215).toString(16).substring(0,6);
+            const randomCommit = '#' + Math.floor(Math.random() * 16777215).toString(16).substring(0, 6);
             commitEl.innerText = randomCommit;
 
             // Reset all stage nodes
@@ -1009,7 +1206,7 @@ helm install kube-prometheus prometheus-community/kube-prometheus-stack \\
 
         function runCommand(cmd) {
             const output = document.getElementById('terminal-output');
-            
+
             // Print command
             const echoLine = document.createElement('div');
             echoLine.innerHTML = `<span class="text-emerald-400 font-bold">anusree@devops-lab:~$</span> <span class="text-slate-100">${escapeHtml(cmd)}</span>`;
@@ -1048,7 +1245,7 @@ argocd-server-79d85489f6-x2z89        1/1     Running   0          10d`;
             } else if (lowerCmd.includes('docker ps')) {
                 resultLine.innerHTML = `<span class="text-slate-400">CONTAINER ID   IMAGE                 COMMAND                  PORTS                    NAMES</span>
 d9f821a830b1   nginx:alpine          "/docker-entrypoint…"   0.0.0.0:80->80/tcp       reverse-proxy
-c8192a0149e2   python:3.11-slim      "python app.py"          0.0.0.0:5000->5000/tcp   ckend-api`;
+c8192a0149e2   python:3.11-slim      "python app.py"          0.0.0.0:5000->5000/tcp   backend-api`;
             } else if (lowerCmd.includes('cat resume.txt') || lowerCmd.includes('resume')) {
                 resultLine.innerHTML = `<span class="text-purple-300">ANUSREE MANOJ &mdash; JUNIOR DEVOPS ENGINEER</span>
 Education: B.S. Computer Science (2025) | GPA: 3.8
@@ -1109,4 +1306,5 @@ Goal: Eager to contribute to a collaborative DevOps team building scalable infra
         }
     </script>
 </body>
+
 </html>
