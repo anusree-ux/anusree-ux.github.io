@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anusree Manoj | Junior DevOps & Platform Engineer Portfolio</title>
+    <title>Anusree Manoj Portfolio</title>
 
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -30,7 +30,7 @@
                     },
                     fontFamily: {
                         mono: ['Fira Code', 'JetBrains Mono', 'ui-monospace', 'monospace'],
-                        sans: ['Inter', 'system-ui', 'sans-serif']
+                        sans: ['Space Grotesk', 'system-ui', 'sans-serif']
                     },
                     animation: {
                         'pulse-fast': 'pulse 1.2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
@@ -52,10 +52,156 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+    <!-- Custom Styles -->
     <style>
+        /* Centralized site font size: change this value to scale all text. */
+        :root {
+            --site-font-size: 20px;
+            --bg: #121212;
+            --panel: #171717;
+            --border: #2a2a2a;
+            --text: #f8fafc;
+            --muted: #9ca3af;
+            --accent: #4ade80;
+        }
+
+        html {
+            font-size: var(--site-font-size);
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
+        html.dark {
+            --bg: #121212;
+            --panel: #171717;
+            --border: #2a2a2a;
+            --text: #f8fafc;
+            --muted: #9ca3af;
+            --accent: #4ade80;
+        }
+
+        html:not(.dark) {
+            --bg: #f5f5f5;
+            --panel: #ffffff;
+            --border: #d1d5db;
+            --text: #111827;
+            --muted: #4b5563;
+            --accent: #22c55e;
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
+        }
+
+        body,
+        main,
+        header,
+        section,
+        footer,
+        .glass-panel {
+            background-color: var(--bg) !important;
+            color: var(--text) !important;
+        }
+
+        .bg-white,
+        .bg-slate-50,
+        .bg-slate-100,
+        .bg-slate-900,
+        .bg-slate-950,
+        .bg-slate-800,
+        .bg-slate-700,
+        .bg-slate-600,
+        .bg-[#121212],
+        .bg-[#111827],
+        .bg-[#171717],
+        .bg-[#0b0f19] {
+            background-color: var(--panel) !important;
+        }
+
+        .text-slate-900,
+        .text-slate-800,
+        .text-slate-700 {
+            color: var(--text) !important;
+        }
+
+        .text-slate-600,
+        .text-slate-500,
+        .text-slate-400,
+        .text-slate-300,
+        .text-slate-200,
+        .text-slate-100,
+        .text-gray-300,
+        .text-gray-400,
+        .text-gray-500,
+        .text-gray-600,
+        .text-gray-700,
+        .text-gray-800 {
+            color: var(--muted) !important;
+        }
+
+        .border-slate-200,
+        .border-slate-300,
+        .border-slate-700,
+        .border-slate-800,
+        .border-gray-800,
+        .border-gray-900 {
+            border-color: var(--border) !important;
+        }
+
+        body,
+        body * {
+            box-sizing: border-box;
+        }
+
+        h1, h2, h3, h4, h5, h6,
+        strong, b, .text-white {
+            color: var(--text);
+        }
+
+        p, li, small, label, time, span, code,
+        .text-slate-300, .text-slate-400, .text-slate-500, .text-slate-600, .text-slate-700, .text-slate-800 {
+            color: var(--muted);
+        }
+
+        a {
+            color: inherit;
+        }
+
+        header,
+        header a,
+        header button,
+        main,
+        section,
+        .rounded-lg,
+        .rounded-xl,
+        .rounded-2xl {
+            font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
+        }
+
+        header,
+        section,
+        .border-slate-200,
+        .border-slate-300,
+        .border-slate-700,
+        .border-slate-800,
+        .border-gray-800 {
+            border-color: var(--border) !important;
+        }
+
+        .text-emerald-400,
+        .text-emerald-500,
+        .text-emerald-600,
+        .hover\:text-emerald-400,
+        .hover\:text-emerald-500,
+        .hover\:text-emerald-600 {
+            color: var(--accent) !important;
+        }
+
         ::-webkit-scrollbar {
             width: 8px;
             height: 8px;
@@ -102,561 +248,745 @@
             backdrop-filter: blur(12px);
             border: 1px solid rgba(255, 255, 255, 0.08);
         }
+
+        /* Interactive DevOps Network Hero Background */
+        .devops-background {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            overflow: hidden;
+        }
+
+        .devops-network {
+            display: block;
+            width: 100%;
+            height: 100%;
+            opacity: 0.95;
+        }
+
+        .tool-logo {
+            animation: tool-float 4s ease-in-out infinite;
+        }
+
+        .section-label {
+            font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            line-height: 1.3;
+            color: var(--accent);
+        }
+
+        .hero-name {
+            font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
+            letter-spacing: -0.04em;
+            font-weight: 700;
+        }
+
+        .section-title,
+        .project-title,
+        .card-title,
+        .feature-title {
+            font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        .body-copy,
+        .meta-copy,
+        .detail-copy,
+        .text-base,
+        .text-sm,
+        .text-xs,
+        p,
+        li,
+        small,
+        label,
+        time,
+        span:not(.section-label):not(.hero-title):not(.hero-intro):not(.hero-dollar) {
+            font-family: 'Fira Code', 'JetBrains Mono', ui-monospace, monospace;
+            line-height: 1.7;
+            letter-spacing: 0.01em;
+        }
+
+        .hero-initial {
+            display: inline-block;
+            clip-path: polygon(0 0, 100% 0, 100% 68%, 72% 100%, 0 100%);
+        }
+
+        .terminal-caret {
+            display: inline-block;
+            width: 0.16em;
+            height: 0.9em;
+            margin-left: 0.12em;
+            background: #166534;
+            vertical-align: -0.08em;
+            animation: caret-blink 1s steps(1, end) infinite;
+        }
+
+        @keyframes caret-blink {
+            50% {
+                opacity: 0;
+            }
+        }
+
+        #hero {
+            background: var(--bg);
+            position: relative;
+            isolation: isolate;
+        }
+
+        .hero-dot-grid {
+            background-image: linear-gradient(rgba(34, 197, 94, 0.08) 1px, transparent 1px), linear-gradient(90deg, rgba(34, 197, 94, 0.08) 1px, transparent 1px);
+            background-size: 1.4rem 1.4rem;
+            mask-image: radial-gradient(ellipse 75% 75% at 50% 45%, #000 25%, transparent 100%);
+            opacity: 0.7;
+        }
+
+        .hero-ambient {
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
+        }
+
+        .hero-ambient::before,
+        .hero-ambient::after {
+            content: "";
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(60px);
+            opacity: 0.28;
+            animation: hero-float 10s ease-in-out infinite alternate;
+        }
+
+        .hero-ambient::before {
+            width: 22rem;
+            height: 22rem;
+            left: -6rem;
+            top: -4rem;
+            background: rgba(34, 197, 94, 0.35);
+        }
+
+        .hero-ambient::after {
+            width: 18rem;
+            height: 18rem;
+            right: -4rem;
+            bottom: -3rem;
+            background: rgba(6, 182, 212, 0.25);
+            animation-duration: 12s;
+        }
+
+        @keyframes hero-float {
+            0% {
+                transform: translate3d(0, 0, 0) scale(1);
+            }
+            100% {
+                transform: translate3d(20px, 30px, 0) scale(1.08);
+            }
+        }
+
+        .tool-logo:nth-of-type(2) { animation-delay: -0.5s; }
+        .tool-logo:nth-of-type(3) { animation-delay: -1.2s; }
+        .tool-logo:nth-of-type(4) { animation-delay: -2s; }
+        .tool-logo:nth-of-type(5) { animation-delay: -2.7s; }
+        .tool-logo:nth-of-type(6) { animation-delay: -3.3s; }
+        .tool-logo:nth-of-type(7) { animation-delay: -1.7s; }
+
+        .pipeline-flow {
+            background: transparent;
+        }
+
+        .snake-shell {
+            position: relative;
+            min-height: 20rem;
+            border-radius: 1.5rem;
+            background: linear-gradient(135deg, #0d2f2f 0%, #113737 100%);
+            border: 1px solid rgba(170, 198, 183, 0.16);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
+            overflow: hidden;
+            isolation: isolate;
+        }
+
+        .snake-shell::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(rgba(255,255,255,0.04) 1px, transparent 1px);
+            background-size: 16px 16px;
+            opacity: 0.3;
+            pointer-events: none;
+        }
+
+        .snake-path {
+            stroke: rgba(204, 223, 214, 0.7);
+            stroke-width: 2.2;
+            stroke-linecap: round;
+            fill: none;
+        }
+
+        .snake-path.dotted {
+            stroke-dasharray: 4 6;
+            animation: snake-dash 3.2s linear infinite;
+        }
+
+        .snake-dot {
+            fill: #ffffff;
+            animation: snake-dot-pulse 2.2s ease-in-out infinite;
+        }
+
+        .snake-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            padding: 0.5rem 0.8rem;
+            border-radius: 9999px;
+            background: #708b7a;
+            color: #f6f8f3;
+            font-size: 0.63rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            white-space: nowrap;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+            border: 1px solid rgba(255, 255, 255, 0.14);
+        }
+
+        .snake-pill.terminal {
+            background: linear-gradient(135deg, #7fa38e 0%, #5f7d6d 100%);
+        }
+
+        .snake-icon {
+            width: 1.1rem;
+            height: 1.1rem;
+            border-radius: 9999px;
+            background: #f5f8f2;
+            color: #0f2f2f;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.65rem;
+            font-weight: 700;
+        }
+
+        @keyframes snake-dash {
+            to {
+                stroke-dashoffset: -24;
+            }
+        }
+
+        @keyframes snake-dot-pulse {
+            0%, 100% {
+                opacity: 0.8;
+                transform: scale(0.95);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.1);
+            }
+        }
+
+        @keyframes tool-float {
+            0%, 100% {
+                margin-top: 0;
+            }
+
+            50% {
+                margin-top: -0.65rem;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .tool-logo {
+                animation: none;
+            }
+        }
+
+        /* Mouse-following cursor glow */
+        .cursor-glow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 110;
+            width: 0.625rem;
+            height: 0.625rem;
+            border: 0;
+            border-radius: 9999px;
+            background: #4ade80;
+            box-shadow: 0 0 12px rgba(74, 222, 128, 0.8);
+            pointer-events: none;
+            opacity: 0;
+            transform: translate(-50%, -50%);
+            transition: width 160ms ease, height 160ms ease, background-color 160ms ease, opacity 160ms ease;
+        }
+
+        .cursor-glow::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 2rem;
+            height: 2rem;
+            border: 1px solid rgba(74, 222, 128, 0.75);
+            border-radius: 9999px;
+            box-shadow: 0 0 18px rgba(74, 222, 128, 0.35);
+            transform: translate(-50%, -50%);
+            transition: width 160ms ease, height 160ms ease, border-color 160ms ease;
+        }
+
+        .cursor-glow.is-active {
+            opacity: 1;
+        }
+
+        .cursor-glow.is-hovering {
+            width: 0.875rem;
+            height: 0.875rem;
+            background: #22d3ee;
+        }
+
+        .cursor-glow.is-hovering::after {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-color: rgba(34, 211, 238, 0.9);
+        }
+
+        .site-header {
+            background: transparent;
+            border: 0;
+        }
+
+        .site-header-shell {
+            position: relative;
+            overflow: hidden;
+            background: var(--panel);
+            border-color: var(--border);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
+
+        .site-header-shell > * {
+            position: relative;
+            z-index: 1;
+        }
+
+        .site-header-canvas {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.9;
+        }
+
+        html:not(.dark) .site-header-shell {
+            box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+        }
+
+        .site-brand-text,
+        .site-nav-link,
+        .site-icon-button,
+        .site-cta {
+            color: var(--text);
+            font-family: 'Space Grotesk', system-ui, sans-serif;
+        }
+
+        .site-brand-badge {
+            color: #ffffff;
+            background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);
+            border-color: transparent;
+        }
+
+        .site-nav-link {
+            color: var(--muted);
+            transition: all 180ms ease;
+            position: relative;
+            font-size: 0.72rem;
+            letter-spacing: 0.24em;
+            text-transform: uppercase;
+        }
+
+        .site-nav-link:hover,
+        .site-nav-link:focus-visible {
+            color: var(--accent);
+        }
+
+        .site-nav-link.active {
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(74, 222, 128, 0.35);
+        }
+
+        .site-nav-link.active::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -0.3rem;
+            width: 100%;
+            height: 1px;
+            background: var(--accent);
+            box-shadow: 0 0 10px rgba(74, 222, 128, 0.5);
+        }
+
+        .hero-intro,
+        .hero-dollar {
+            color: var(--muted);
+        }
+
+        .hero-title {
+            color: var(--accent);
+            text-shadow: 0 0 18px rgba(74, 222, 128, 0.3);
+        }
+
+        @media (pointer: fine) {
+            body,
+            a,
+            button,
+            input,
+            textarea {
+                cursor: none;
+            }
+        }
+
+        @media (pointer: coarse) {
+            .cursor-glow {
+                display: none;
+            }
+        }
     </style>
 </head>
 
 <body
-    class="bg-devops-dark text-slate-200 font-sans antialiased selection:bg-devops-500 selection:text-black min-h-screen flex flex-col">
+    class="min-h-screen flex flex-col bg-[#121212] text-white font-mono antialiased selection:bg-[#4ade80] selection:text-black transition-colors duration-300">
 
-    <header class="sticky top-0 z-50 glass-panel border-b border-gray-800/80">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-            <a href="#hero" class="flex items-center gap-3 group">
-                <div
-                    class="w-10 h-10 rounded-lg bg-emerald-950 border border-emerald-500/30 flex items-center justify-center group-hover:border-emerald-400 transition-colors">
-                    <i class="fa-solid font-mono text-emerald-400 text-lg">&gt;_</i>
+    <!-- Mouse Cursor Effect -->
+    <div id="cursor-glow" class="cursor-glow" aria-hidden="true"></div>
+
+    <!-- Startup Screen -->
+    <div id="startup-screen"
+        class="fixed inset-0 z-[100] bg-slate-950 flex flex-col items-center justify-center p-4 transition-opacity duration-500 font-mono text-xs">
+        <div class="max-w-md w-full bg-slate-900 border border-slate-800 rounded-xl p-5 shadow-2xl space-y-4">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <div class="flex items-center gap-2">
+                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
+                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
+                    <span class="text-slate-400 text-xs ml-2 font-mono">devops_boot.sh</span>
                 </div>
-                <div>
-                    <span
-                        class="font-bold text-slate-100 tracking-tight text-lg group-hover:text-emerald-400 transition-colors">Anusree
-                        Manoj</span>
+                <span class="text-emerald-400 font-bold text-[10px] animate-pulse">SYSTEM BOOT</span>
+            </div>
+
+            <div class="space-y-2 text-slate-300 font-mono text-xs" id="startup-logs">
+                <div class="text-emerald-400 flex items-center gap-2">
+                    <span>[OK]</span> <span>Kernel initialized. Loading environment...</span>
                 </div>
-            </a>
+            </div>
 
-            <!-- Main Navigation Links -->
-            <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
-                <a href="#skills" class="text-slate-300 hover:text-emerald-400 transition-colors">Skills</a>
-                <a href="#projects" class="text-slate-300 hover:text-emerald-400 transition-colors">Projects</a>
-                <a href="#contact" class="text-slate-300 hover:text-emerald-400 transition-colors">Contact</a>
-                <a href="#terminal" class="text-slate-300 hover:text-emerald-400 transition-colors font-mono">&gt;
-                    Terminal</a>
-                <a href="#contact"
-                    class="px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-semibold transition-all shadow-lg shadow-emerald-500/20 hover:scale-105">Hire
-                    Me</a>
-            </nav>
+            <div class="w-full bg-slate-950 rounded-full h-1.5 overflow-hidden border border-slate-800">
+                <div id="startup-bar"
+                    class="bg-gradient-to-r from-emerald-500 via-teal-400 to-cyan-400 h-full w-0 transition-all duration-300">
+                </div>
+            </div>
+        </div>
+    </div>
 
-            <!-- Mobile Hamburger Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-slate-400 hover:text-slate-100"
-                aria-label="Toggle Menu">
-                <i class="fa-solid fa-bars text-xl"></i>
-            </button>
+    <!-- Site Header and Navigation -->
+    <header class="site-header sticky top-0 z-50 pt-4 md:pt-6">
+        <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div class="site-header-shell flex items-center justify-between gap-3 rounded-full border px-3 py-3 backdrop-blur-xl">
+                <canvas id="navbar-network" class="site-header-canvas" aria-hidden="true"></canvas>
+                <a href="#hero" class="flex min-w-0 items-center gap-3">
+                    <span class="site-brand-badge flex h-10 w-10 items-center justify-center rounded-2xl text-sm font-semibold">
+                        <i class="fa-solid fa-terminal"></i>
+                    </span>
+                    <span class="flex flex-col leading-none">
+                        <span class="site-brand-text text-[0.8rem] font-semibold tracking-[0.22em] text-[var(--text)]">Anusree Manoj</span>
+                        <span class="mt-1 text-[0.62rem] uppercase tracking-[0.24em] text-[var(--muted)]">DevOps Engineer</span>
+                    </span>
+                </a>
+
+                <nav class="hidden flex-1 items-center justify-center gap-6 md:flex">
+                    <a href="#hero" class="site-nav-link">Home</a>
+                    <a href="#profile" class="site-nav-link">Profile</a>
+                    <a href="#projects" class="site-nav-link">Projects</a>
+                    <a href="#skills" class="site-nav-link">Skills</a>
+                    <a href="#contact" class="site-nav-link">Contact</a>
+                    <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer"
+                        class="site-nav-link rounded-full border border-[var(--border)] px-2.5 py-1.5 hover:border-[#4ade80]/40">
+                        Resume
+                    </a>
+                </nav>
+
+                <div class="flex items-center gap-2">
+                    <button id="theme-toggle" onclick="toggleTheme()"
+                        class="site-icon-button flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--panel)]/80 transition-all duration-200 hover:border-[#4ade80]/40 hover:text-[#4ade80]"
+                        title="Toggle Dark/Light Mode" aria-label="Toggle Dark/Light Mode">
+                        <svg id="theme-icon-sun" class="hidden h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <circle cx="12" cy="12" r="4"></circle>
+                            <path d="M12 2v2"></path>
+                            <path d="M12 20v2"></path>
+                            <path d="m4.93 4.93 1.41 1.41"></path>
+                            <path d="m17.66 17.66 1.41 1.41"></path>
+                            <path d="M2 12h2"></path>
+                            <path d="M20 12h2"></path>
+                            <path d="m6.34 17.66-1.41 1.41"></path>
+                            <path d="m19.07 4.93-1.41 1.41"></path>
+                        </svg>
+                        <svg id="theme-icon-moon" class="block h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+                        </svg>
+                    </button>
+
+                    <a href="#contact"
+                        class="site-cta hidden rounded-full bg-emerald-600 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-all duration-200 hover:bg-emerald-500 sm:inline-flex">
+                        Let's talk
+                    </a>
+
+                    <button id="mobile-menu-btn" onclick="toggleMobileMenu()"
+                        class="site-icon-button flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--panel)]/80 transition-all duration-200 hover:border-[#4ade80]/40 hover:text-[#4ade80] md:hidden"
+                        aria-label="Toggle Menu">
+                        <i class="fa-solid fa-bars text-lg"></i>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <!-- Mobile Menu Dropdown -->
-        <div id="mobile-menu"
-            class="hidden md:hidden border-b border-gray-800 bg-slate-900/95 px-4 pt-2 pb-4 space-y-3 font-medium">
-            <a href="#skills" class="block py-2 text-slate-300 hover:text-emerald-400">Skills</a>
-            <a href="#projects" class="block py-2 text-slate-300 hover:text-emerald-400">Projects</a>
-            <a href="#contact" class="block py-2 text-slate-300 hover:text-emerald-400">Contact</a>
-            <a href="#terminal" class="block py-2 text-slate-300 hover:text-emerald-400 font-mono">&gt; Terminal</a>
-            <a href="#contact" class="block py-2 text-center rounded-lg bg-emerald-500 text-slate-950 font-bold">Hire
-                Me</a>
+        <div id="mobile-menu" class="hidden border-t border-white/10 bg-[#121212] px-4 py-3 text-sm font-mono text-[#9ca3af] md:hidden">
+            <div class="space-y-2">
+                <a href="#hero" onclick="toggleMobileMenu()" class="block py-1.5 transition-colors hover:text-[#4ade80]">Home</a>
+                <a href="#profile" onclick="toggleMobileMenu()" class="block py-1.5 transition-colors hover:text-[#4ade80]">Profile</a>
+                <a href="#projects" onclick="toggleMobileMenu()" class="block py-1.5 transition-colors hover:text-[#4ade80]">Projects</a>
+                <a href="#skills" onclick="toggleMobileMenu()" class="block py-1.5 transition-colors hover:text-[#4ade80]">Skills</a>
+                <a href="#contact" onclick="toggleMobileMenu()" class="block py-1.5 transition-colors hover:text-[#4ade80]">Contact</a>
+                <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer" class="block py-1.5 transition-colors hover:text-[#4ade80]">Resume</a>
+            </div>
         </div>
     </header>
 
+    <!-- Main Page Content -->
     <main class="flex-grow">
-        <section id="hero" class="relative pt-12 pb-20 md:pt-20 md:pb-28 overflow-hidden">
+
+        <!-- Hero Section -->
+        <section id="hero" class="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden">
+            <div class="hero-ambient" aria-hidden="true"></div>
             <!-- Background Grid Accent -->
-            <div
-                class="absolute inset-0 bg-[linear-gradient(to_right,#1f293715_1px,transparent_1px),linear-gradient(to_bottom,#1f293715_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] pointer-events-none">
+            <div class="hero-dot-grid absolute inset-0 pointer-events-none">
+            </div>
+
+            <!-- Interactive DevOps Cluster Network Background -->
+            <div class="devops-background" aria-hidden="true">
+                <canvas id="devops-network" class="devops-network"></canvas>
             </div>
 
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-
-                    <!-- Left Hero Content -->
+                    <!-- Hero Introduction -->
                     <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
-                        <div
-                            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-medium">
-                            <span class="relative flex h-2 w-2">
-                                <span
-                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                            </span>
-                            <span class="animate-pulse">Open to work</span>
+                    <div class="flex items-center justify-center lg:justify-start">
+                        <div class="inline-flex items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--panel)]/80 px-3.5 py-1.5 shadow-sm backdrop-blur-sm">
+                            <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(74,222,128,0.7)]"></span>
+                            <span class="text-[0.62rem] font-semibold uppercase tracking-[0.32em] text-[var(--text)]">AVAILABLE</span>
+                            <span class="text-[var(--muted)]">·</span>
+                            <span class="text-[0.62rem] lowercase tracking-[0.18em] text-[var(--muted)]">open to roles &amp; freelance</span>
                         </div>
+                    </div>
 
+                    <div>
+                        <span
+                            class="hero-intro font-mono text-lg font-semibold tracking-[0.16em] block mb-1 uppercase">
+                            <span class="hero-dollar">$</span> hi, I'm
+                        </span>
                         <h1
-                            class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
-                            Anusree Manoj
+                            class="hero-title hero-name text-4xl sm:text-6xl font-black leading-tight uppercase">
+                            <span class="hero-initial">A</span>NUSREE MANOJ<span class="terminal-caret" aria-hidden="true"></span>
                         </h1>
-
-                        <p class="text-slate-400 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                            Hi, I'm <strong class="text-slate-200">Anusree Manoj</strong> — a motivated Junior DevOps
-                            Engineer equipped with hands-on experience in Docker, Kubernetes, Terraform, AWS, GitHub
-                            Actions CI/CD, and Python/Bash scripting.
-                        </p>
-
-                        <!-- Action Buttons -->
-                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
-                            <a href="#projects"
-                                class="px-6 py-3.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-all shadow-lg shadow-emerald-500/25 flex items-center gap-2">
-                                <i class="fa-solid fa-folder-open text-sm"></i>
-                                View Hands-On Projects
-                            </a>
-                            <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer"
-                                class="px-6 py-3.5 rounded-lg bg-slate-800 hover:bg-slate-700 border border-slate-700 text-slate-200 font-semibold transition-all font-mono text-sm flex items-center gap-2">
-                                <i class="fa-solid fa-file-pdf text-emerald-400"></i>
-                                View Resume
-                            </a>
-                        </div>
-
-                        <!-- Social Profile Links -->
-                        <div
-                            class="flex flex-wrap items-center gap-4 pt-6 border-t border-slate-800/80 justify-center lg:justify-start">
-                            <a href="https://github.com/anusree-ux/" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-emerald-500/50 hover:bg-slate-800/80 text-slate-200 font-mono text-xs transition-all group">
-                                <i
-                                    class="fa-brands fa-github text-base text-emerald-400 group-hover:scale-110 transition-transform"></i>
-                                <span>github.com/anusree-ux</span>
-                            </a>
-                            <a href="https://www.linkedin.com/in/anusree15/" target="_blank" rel="noopener noreferrer"
-                                class="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-slate-900 border border-slate-800 hover:border-cyan-500/50 hover:bg-slate-800/80 text-slate-200 font-mono text-xs transition-all group">
-                                <i
-                                    class="fa-brands fa-linkedin text-base text-cyan-400 group-hover:scale-110 transition-transform"></i>
-                                <span>linkedin.com/in/anusree15</span>
-                            </a>
-                        </div>
                     </div>
 
-                    <div class="lg:col-span-5">
-                        <div
-                            class="rounded-xl border border-slate-800 bg-slate-900/90 shadow-2xl overflow-hidden terminal-glow">
-                            <!-- Terminal Bar Header -->
-                            <div
-                                class="px-4 py-3 bg-slate-950 border-b border-slate-800 flex items-center justify-between">
-                                <div class="flex items-center gap-2">
-                                    <div class="w-3 h-3 rounded-full bg-red-500/80"></div>
-                                    <div class="w-3 h-3 rounded-full bg-yellow-500/80"></div>
-                                    <div class="w-3 h-3 rounded-full bg-green-500/80"></div>
-                                    <span class="ml-2 font-mono text-xs text-slate-400">devops-homelab ~
-                                        education</span>
-                                </div>
-                                <span
-                                    class="text-xs font-mono px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">VERIFIED</span>
-                            </div>
-
-                            <!-- Terminal Quick Profile Stream -->
-                            <div class="p-5 font-mono text-xs space-y-3 text-slate-300">
-                                <div class="text-emerald-400 font-bold">// Academic Background &amp; Grades</div>
-
-                                <div class="p-3 bg-slate-950/80 rounded-lg border border-slate-800 space-y-1">
-                                    <div class="flex justify-between items-start font-bold text-slate-100">
-                                        <span>SRM Institute of Science &amp; Tech</span>
-                                        <span class="text-emerald-400 font-mono">9.77 CGPA</span>
-                                    </div>
-                                    <div class="flex justify-between text-[11px] text-slate-400">
-                                        <span>B.Sc Computer Science, Chennai</span>
-                                        <span>2023 &ndash; 2026</span>
-                                    </div>
-                                </div>
-
-                                <div class="p-3 bg-slate-950/80 rounded-lg border border-slate-800 space-y-1">
-                                    <div class="flex justify-between items-start font-bold text-slate-100">
-                                        <span>Union Higher Secondary School</span>
-                                        <span class="text-cyan-400 font-mono">97.42 %</span>
-                                    </div>
-                                    <div class="flex justify-between text-[11px] text-slate-400">
-                                        <span>Higher Secondary &bull; Mambra</span>
-                                        <span>2022</span>
-                                    </div>
-                                </div>
-
-                                <div class="p-3 bg-slate-950/80 rounded-lg border border-slate-800 space-y-1">
-                                    <div class="flex justify-between items-start font-bold text-slate-100">
-                                        <span>St. Joseph’s H.S, Meloor</span>
-                                        <span class="text-teal-300 font-mono">99.9 %</span>
-                                    </div>
-                                    <div class="flex justify-between text-[11px] text-slate-400">
-                                        <span>High School</span>
-                                        <span>2020</span>
-                                    </div>
-                                </div>
-
-                                <!-- Shell Prompt -->
-                                <div
-                                    class="pt-2 text-slate-400 text-[11px] flex items-center justify-between border-t border-slate-800/80">
-                                    <span class="text-emerald-400">anusree@laptop ~ % <span class="text-slate-200">cat
-                                            education.txt</span></span>
-                                    <span class="animate-pulse font-bold text-emerald-400">|</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="skills" class="py-20 bg-slate-900/60 border-y border-slate-800/80 relative overflow-hidden">
-            <!-- Background Radial Glow -->
-            <div
-                class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-emerald-500/5 blur-[120px] rounded-full pointer-events-none">
-            </div>
-
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div class="text-center max-w-3xl mx-auto mb-10">
-                    <div
-                        class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-semibold mb-3">
-                        <i class="fa-solid fa-code"></i> Technical Stack &amp; Tooling
-                    </div>
-                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white tracking-tight">Core Skill Sets &amp;
-                        Tools</h2>
-                    <p class="text-slate-400 mt-2.5 text-sm sm:text-base leading-relaxed">
-                        Engineered through hands-on lab deployments, university coursework, and cloud certifications.
+                    <p
+                        class="body-copy text-xl sm:text-xl leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                        Curious by nature and always learning, I'm exploring the world of DevOps through hands-on projects in Docker,
+                        Kubernetes, CI/CD, Terraform, and AWS—one deployment at a time.
                     </p>
 
-                    <!-- Interactive Skill Category Filter Buttons -->
-                    <div class="flex flex-wrap items-center justify-center gap-2 mt-8 font-mono text-xs">
-                        <button onclick="filterSkills('all')"
-                            class="skill-filter-btn active px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold transition-all shadow-md shadow-emerald-500/20"
-                            data-category="all">
-                            All Skills
-                        </button>
-                        <button onclick="filterSkills('cloud')"
-                            class="skill-filter-btn px-4 py-2 rounded-xl bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-emerald-500/40 hover:text-white transition-all"
-                            data-category="cloud">
-                            <i class="fa-solid fa-cloud text-emerald-400 mr-1.5"></i> Cloud &amp; IaC
-                        </button>
-                        <button onclick="filterSkills('containers')"
-                            class="skill-filter-btn px-4 py-2 rounded-xl bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-cyan-500/40 hover:text-white transition-all"
-                            data-category="containers">
-                            <i class="fa-solid fa-dharmachakra text-cyan-400 mr-1.5"></i> Containers
-                        </button>
-                        <button onclick="filterSkills('cicd')"
-                            class="skill-filter-btn px-4 py-2 rounded-xl bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-teal-500/40 hover:text-white transition-all"
-                            data-category="cicd">
-                            <i class="fa-solid fa-diagram-project text-teal-300 mr-1.5"></i> CI/CD
-                        </button>
-                        <button onclick="filterSkills('observability')"
-                            class="skill-filter-btn px-4 py-2 rounded-xl bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-amber-500/40 hover:text-white transition-all"
-                            data-category="observability">
-                            <i class="fa-solid fa-chart-line text-amber-400 mr-1.5"></i> Observability
-                        </button>
-                        <button onclick="filterSkills('security')"
-                            class="skill-filter-btn px-4 py-2 rounded-xl bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-purple-500/40 hover:text-white transition-all"
-                            data-category="security">
-                            <i class="fa-solid fa-shield-halved text-purple-400 mr-1.5"></i> DevSecOps
-                        </button>
+                    <!-- Action Buttons -->
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#projects"
+                            class="px-6 py-3.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-all shadow-lg shadow-emerald-500/25 flex items-center gap-2">
+                            <i class="fa-solid fa-folder-open text-sm"></i>
+                            View Projects
+                        </a>
+                        <a href="assets/resume.pdf" target="_blank" rel="noopener noreferrer"
+                            class="px-6 py-3.5 rounded-lg bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-300 dark:border-slate-700 text-slate-800 dark:text-slate-200 font-semibold transition-all font-mono text-sm flex items-center gap-2 shadow-sm">
+                            <i class="fa-solid fa-file-pdf text-emerald-600 dark:text-emerald-400"></i>
+                            View Resume
+                        </a>
                     </div>
-                </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="skills-grid">
+                    <!-- Social Profile Links -->
+                    <div
+                        class="flex flex-wrap items-center gap-4 pt-6 border-t border-slate-200 dark:border-slate-800/80 justify-center lg:justify-start">
+                        <a href="https://github.com/anusree-ux/" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/50 text-slate-700 dark:text-slate-200 font-mono text-xs transition-all shadow-sm group">
+                            <i
+                                class="fa-brands fa-github text-base text-emerald-600 dark:text-emerald-400 group-hover:scale-110 transition-transform"></i>
+                            <span>github.com/anusree-ux</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/anusree15/" target="_blank" rel="noopener noreferrer"
+                            class="flex items-center gap-2.5 px-4 py-2.5 rounded-lg bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-cyan-500/50 text-slate-700 dark:text-slate-200 font-mono text-xs transition-all shadow-sm group">
+                            <i
+                                class="fa-brands fa-linkedin text-base text-cyan-600 dark:text-cyan-400 group-hover:scale-110 transition-transform"></i>
+                            <span>linkedin.com/in/anusree15</span>
+                        </a>
+                    </div>
 
-                    <!-- Skill Card 1: Cloud & IaC -->
-                    <div class="skill-card group p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800/90 hover:border-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/10 transition-all duration-300 hover:-translate-y-1"
-                        data-cat="cloud">
-                        <div class="flex items-center justify-between mb-5">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 border border-emerald-500/30 flex items-center justify-center text-emerald-400 text-xl group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-cloud"></i>
-                            </div>
-                            <span
-                                class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">AWS
-                                &amp; IAC</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-emerald-400 transition-colors">
-                            Cloud &amp; Infrastructure as Code</h3>
-                        <p class="text-slate-400 text-xs mb-5 leading-relaxed">Declarative cloud resource provisioning,
-                            immutable infrastructure, and state synchronization.</p>
+                    </div>
 
-                        <div class="space-y-2.5 font-mono text-xs">
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-emerald-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-brands fa-aws text-amber-400 text-sm"></i> AWS (EC2, EKS, VPC,
-                                    S3)</span>
-                                <span class="text-[10px] text-emerald-400 font-semibold">Core</span>
+                    <!-- DevOps Status Panel -->
+                    <div class="hidden lg:col-span-5">
+                        <div
+                            class="rounded-2xl overflow-hidden border border-emerald-500/30 bg-slate-950/90 shadow-2xl shadow-emerald-500/10 backdrop-blur-sm font-mono text-sm text-slate-300">
+                            <div class="flex items-center justify-between px-5 py-3 border-b border-slate-800 bg-slate-900/90">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-2.5 h-2.5 rounded-full bg-red-500/80"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-yellow-400/80"></span>
+                                    <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                                </div>
+                                <span class="text-xs text-slate-500">devops-status.yml</span>
                             </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-emerald-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-cubes text-purple-400 text-xs"></i> Terraform</span>
-                                <span class="text-[10px] text-purple-400 font-semibold">Certified</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-emerald-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-layer-group text-cyan-400 text-xs"></i> CloudFormation</span>
-                                <span class="text-[10px] text-slate-400">IaC</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-emerald-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-lock text-emerald-400 text-xs"></i> IAM &amp; Security
-                                    Groups</span>
-                                <span class="text-[10px] text-slate-400">Security</span>
+
+                            <div class="p-5 space-y-5">
+                                <div class="flex items-center justify-between">
+                                    <span class="text-emerald-400">environment:</span>
+                                    <span class="px-2 py-1 rounded bg-emerald-500/10 text-emerald-300 text-xs">ready</span>
+                                </div>
+                                <div class="space-y-3">
+                                    <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                                        <span class="text-slate-400">containers</span>
+                                        <span class="text-cyan-300">Docker · Kubernetes</span>
+                                    </div>
+                                    <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                                        <span class="text-slate-400">automation</span>
+                                        <span class="text-emerald-300">CI/CD · GitHub Actions</span>
+                                    </div>
+                                    <div class="flex items-center justify-between border-b border-slate-800 pb-2">
+                                        <span class="text-slate-400">infrastructure</span>
+                                        <span class="text-yellow-300">Terraform · AWS</span>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                        <span class="text-slate-400">observability</span>
+                                        <span class="text-purple-300">Prometheus · Grafana</span>
+                                    </div>
+                                </div>
+                                <div class="pt-2 text-xs text-slate-500">
+                                    <span class="text-emerald-400">$</span> monitoring deployments<span class="animate-pulse">_</span>
+                                </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Skill Card 2: Containers & Orchestration -->
-                    <div class="skill-card group p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800/90 hover:border-cyan-500/50 hover:shadow-xl hover:shadow-cyan-500/10 transition-all duration-300 hover:-translate-y-1"
-                        data-cat="containers">
-                        <div class="flex items-center justify-between mb-5">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-500/20 to-cyan-500/5 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-xl group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-dharmachakra"></i>
-                            </div>
-                            <span
-                                class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-400 border border-cyan-500/20">ORCHESTRATION</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-cyan-400 transition-colors">
-                            Containers &amp; Kubernetes</h3>
-                        <p class="text-slate-400 text-xs mb-5 leading-relaxed">Microservice containerization, cluster
-                            orchestration, Helm charts, and GitOps deployments.</p>
-
-                        <div class="space-y-2.5 font-mono text-xs">
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-cyan-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-brands fa-docker text-cyan-400 text-sm"></i> Docker / Docker
-                                    Compose</span>
-                                <span class="text-[10px] text-cyan-400 font-semibold">Expert</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-cyan-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-dharmachakra text-blue-400 text-xs"></i> Kubernetes (Kind /
-                                    EKS)</span>
-                                <span class="text-[10px] text-blue-400 font-semibold">CKA Prep</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-cyan-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-file-code text-emerald-400 text-xs"></i> Helm &amp;
-                                    Kustomize</span>
-                                <span class="text-[10px] text-slate-400">Templating</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-cyan-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-arrows-rotate text-teal-300 text-xs"></i> Argo CD</span>
-                                <span class="text-[10px] text-teal-300 font-semibold">GitOps</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill Card 3: CI/CD Pipelines -->
-                    <div class="skill-card group p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800/90 hover:border-teal-500/50 hover:shadow-xl hover:shadow-teal-500/10 transition-all duration-300 hover:-translate-y-1"
-                        data-cat="cicd">
-                        <div class="flex items-center justify-between mb-5">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-500/20 to-teal-500/5 border border-teal-500/30 flex items-center justify-center text-teal-300 text-xl group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-diagram-project"></i>
-                            </div>
-                            <span
-                                class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-teal-500/10 text-teal-300 border border-teal-500/20">AUTOMATION</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-teal-300 transition-colors">CI/CD
-                            &amp; Version Control</h3>
-                        <p class="text-slate-400 text-xs mb-5 leading-relaxed">Building automated pipelines for
-                            continuous integration, testing, and zero-downtime delivery.</p>
-
-                        <div class="space-y-2.5 font-mono text-xs">
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-teal-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-brands fa-github text-slate-100 text-sm"></i> GitHub Actions</span>
-                                <span class="text-[10px] text-emerald-400 font-semibold">Automated</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-teal-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-brands fa-jenkins text-red-400 text-sm"></i> Jenkins Pipelines</span>
-                                <span class="text-[10px] text-slate-400">CI Server</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-teal-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-brands fa-git-alt text-orange-400 text-sm"></i> Git Version
-                                    Control</span>
-                                <span class="text-[10px] text-slate-400">Workflows</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-teal-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-bolt text-amber-400 text-xs"></i> Webhooks &amp;
-                                    Triggers</span>
-                                <span class="text-[10px] text-slate-400">Automation</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill Card 4: Observability & Telemetry -->
-                    <div class="skill-card group p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800/90 hover:border-amber-500/50 hover:shadow-xl hover:shadow-amber-500/10 transition-all duration-300 hover:-translate-y-1"
-                        data-cat="observability">
-                        <div class="flex items-center justify-between mb-5">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500/20 to-amber-500/5 border border-amber-500/30 flex items-center justify-center text-amber-400 text-xl group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-chart-line"></i>
-                            </div>
-                            <span
-                                class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">TELEMETRY</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-amber-400 transition-colors">
-                            Monitoring &amp; Observability</h3>
-                        <p class="text-slate-400 text-xs mb-5 leading-relaxed">Tracking metrics, configuring log
-                            aggregation, and setting up cluster alert management.</p>
-
-                        <div class="space-y-2.5 font-mono text-xs">
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-amber-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-fire text-amber-500 text-xs"></i> Prometheus Metrics</span>
-                                <span class="text-[10px] text-amber-400 font-semibold">Alerting</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-amber-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-chart-pie text-orange-400 text-xs"></i> Grafana
-                                    Dashboards</span>
-                                <span class="text-[10px] text-slate-400">Visuals</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-amber-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-database text-cyan-400 text-xs"></i> Loki &amp;
-                                    Promtail</span>
-                                <span class="text-[10px] text-slate-400">Logs</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-amber-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-[#FF9900] fa-cloud text-amber-400 text-xs"></i> AWS
-                                    CloudWatch</span>
-                                <span class="text-[10px] text-slate-400">Cloud Logs</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill Card 5: Scripting & Linux -->
-                    <div class="skill-card group p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800/90 hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300 hover:-translate-y-1"
-                        data-cat="cloud">
-                        <div class="flex items-center justify-between mb-5">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/20 to-blue-500/5 border border-blue-500/30 flex items-center justify-center text-blue-400 text-xl group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-terminal"></i>
-                            </div>
-                            <span
-                                class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">SYSTEMS</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">Linux
-                            &amp; Scripting</h3>
-                        <p class="text-slate-400 text-xs mb-5 leading-relaxed">Shell automation, system administration,
-                            API integration, and manifest configuration.</p>
-
-                        <div class="space-y-2.5 font-mono text-xs">
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-blue-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-terminal text-emerald-400 text-xs"></i> Bash Shell
-                                    Scripting</span>
-                                <span class="text-[10px] text-emerald-400 font-semibold">Core</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-blue-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-brands fa-python text-yellow-400 text-sm"></i> Python (Boto3
-                                    SDK)</span>
-                                <span class="text-[10px] text-slate-400">Automation</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-blue-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-brands fa-linux text-slate-200 text-sm"></i> Linux
-                                    Administration</span>
-                                <span class="text-[10px] text-slate-400">Ubuntu/Debian</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-blue-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-code text-cyan-400 text-xs"></i> YAML / JSON Data</span>
-                                <span class="text-[10px] text-slate-400">Specs</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Skill Card 6: DevSecOps & Security -->
-                    <div class="skill-card group p-6 rounded-2xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-slate-800/90 hover:border-purple-500/50 hover:shadow-xl hover:shadow-purple-500/10 transition-all duration-300 hover:-translate-y-1"
-                        data-cat="security">
-                        <div class="flex items-center justify-between mb-5">
-                            <div
-                                class="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/20 to-purple-500/5 border border-purple-500/30 flex items-center justify-center text-purple-400 text-xl group-hover:scale-110 transition-transform">
-                                <i class="fa-solid fa-shield-halved"></i>
-                            </div>
-                            <span
-                                class="text-[10px] font-mono font-bold px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-400 border border-purple-500/20">DEVSECOPS</span>
-                        </div>
-                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">
-                            DevSecOps &amp; Security</h3>
-                        <p class="text-slate-400 text-xs mb-5 leading-relaxed">Container vulnerability scanning, secret
-                            hygiene, RBAC, and network security policies.</p>
-
-                        <div class="space-y-2.5 font-mono text-xs">
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-purple-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-bug text-purple-400 text-xs"></i> Trivy Vulnerability
-                                    Scan</span>
-                                <span class="text-[10px] text-purple-400 font-semibold">Pipeline Check</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-purple-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-[#22C55E] fa-key text-emerald-400 text-xs"></i> GitHub
-                                    Secrets &amp; IAM</span>
-                                <span class="text-[10px] text-slate-400">Secrets</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-purple-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-network-wired text-cyan-400 text-xs"></i> K8s
-                                    NetworkPolicies</span>
-                                <span class="text-[10px] text-slate-400">Hardening</span>
-                            </div>
-                            <div
-                                class="flex items-center justify-between p-2.5 rounded-lg bg-slate-950/70 border border-slate-800/80 hover:border-purple-500/30 transition-all">
-                                <span class="flex items-center gap-2 text-slate-200"><i
-                                        class="fa-solid fa-user-shield text-amber-400 text-xs"></i> Non-Root Docker
-                                    Builds</span>
-                                <span class="text-[10px] text-slate-400">Best Practice</span>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
             </div>
         </section>
 
+        <!-- Profile Section -->
+        <section id="profile"
+            class="py-16 bg-slate-100/60 dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800/80 transition-colors">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <!-- Profile Header -->
+                <div class="flex items-center gap-4 mb-10">
+                    <h2 class="section-label shrink-0">
+                        <span class="text-emerald-600 dark:text-emerald-400">01.</span> whoami
+                    </h2>
+                    <div class="h-px bg-slate-300 dark:bg-slate-700 flex-grow"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+                    <!-- Profile Card Component -->
+                    <div class="lg:col-span-6">
+                        <div class="h-full rounded-2xl border border-slate-200 bg-[#f8f8f2] p-6 shadow-sm sm:p-8">
+                            <div class="flex items-center justify-between border-b border-slate-300 pb-3.5 text-xs font-mono uppercase tracking-[0.2em] text-slate-500">
+                                <span class="flex items-center gap-2 font-semibold text-slate-700">
+                                    <i class="fa-solid fa-file-code text-emerald-500"></i> profile.yaml
+                                </span>
+                                <span class="text-[11px] text-emerald-600">active</span>
+                            </div>
+
+                            <div class="mt-4 space-y-0 text-sm font-mono">
+                                <div class="flex items-center justify-between border-b border-slate-200 py-3">
+                                    <span class="text-slate-500 lowercase">name</span>
+                                    <span class="font-semibold text-slate-900">anusree manoj</span>
+                                </div>
+                                <div class="flex items-center justify-between border-b border-slate-200 py-3">
+                                    <span class="text-slate-500 lowercase">role</span>
+                                    <span class="font-semibold text-slate-900">junior devops engineer</span>
+                                </div>
+                                <div class="flex items-center justify-between border-b border-slate-200 py-3">
+                                    <span class="text-slate-500 lowercase">based</span>
+                                    <span class="font-semibold text-slate-900">thrissur, kerala, india</span>
+                                </div>
+                                <div class="flex items-center justify-between py-3">
+                                    <span class="text-slate-500 lowercase">status</span>
+                                    <span class="flex items-center gap-2 font-semibold text-emerald-600">
+                                        <span class="h-2.5 w-2.5 rounded-full bg-emerald-500 shadow-[0_0_10px_rgba(74,222,128,0.7)]"></span>
+                                        <span>open to opportunities</span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Story Text Section -->
+                    <div class="lg:col-span-6 flex flex-col justify-center space-y-4">
+                        <h3 class="text-xl font-bold text-slate-900 dark:text-white">The Story So Far</h3>
+                        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                            I didn't get into DevOps because of the tools. I got into it because I loved the idea of
+                            automation. The moment I realized I could automate something I'd normally do over and over
+                            again, I was hooked. Since then, I've spent most of my time breaking things, fixing them,
+                            and figuring out how applications actually make it from code to production.
+                        </p>
+                        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                            These days, I'm usually experimenting with Kubernetes, Docker, CI/CD, Terraform, and AWS—and
+                            enjoying every time something finally works after hours of debugging. Right now, I'm looking
+                            for a team where I can keep learning and build reliable systems alongside experienced
+                            engineers.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
         <section id="projects" class="py-20">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-12">
-                    <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase">Practical
-                        Experience</h2>
-                    <p class="text-3xl font-extrabold text-white mt-1">Hands-On Capstone Projects</p>
-                    <p class="text-slate-400 text-sm mt-2">Full-stack infrastructure projects built to solve real-world
-                        continuous deployment and cloud automation challenges.</p>
+                <div class="flex items-center gap-4 mb-10">
+                    <h2 class="section-label shrink-0">
+                        <span class="text-emerald-600 dark:text-emerald-400">02.</span> Projects
+                    </h2>
+                    <div class="h-px bg-slate-300 dark:bg-slate-700 flex-grow"></div>
                 </div>
 
                 <div class="max-w-4xl mx-auto">
                     <!-- Project 1 -->
                     <div
-                        class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden hover:border-emerald-500/50 transition-all flex flex-col justify-between p-6 sm:p-8 space-y-6">
+                        class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden hover:border-emerald-500/50 transition-all flex flex-col justify-between p-6 sm:p-8 space-y-6 shadow-sm">
                         <div
-                            class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-800/80 pb-4">
+                            class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-slate-200 dark:border-slate-800/80 pb-4">
                             <div>
                                 <span
-                                    class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-mono font-bold">GitOps</span>
-                                <h3 class="text-2xl font-bold text-white mt-2">Microservices GitOps Platform</h3>
+                                    class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-bold">GitOps</span>
+                                <h3 class="text-2xl font-bold text-slate-900 dark:text-white mt-2">Microservices GitOps
+                                    Platform</h3>
                             </div>
                             <a href="https://github.com/anusree-ux/microservice-kubernetes" target="_blank"
                                 rel="noopener noreferrer"
-                                class="self-start sm:self-auto px-3.5 py-2 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-mono flex items-center gap-2 border border-slate-700 transition-all">
-                                <i class="fa-brands fa-github text-emerald-400"></i> View GitHub Repo
+                                class="self-start sm:self-auto px-3.5 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-200 text-xs font-mono flex items-center gap-2 border border-slate-300 dark:border-slate-700 transition-all">
+                                <i class="fa-brands fa-github text-emerald-600 dark:text-emerald-400"></i> View GitHub
+                                Repo
                             </a>
                         </div>
 
-                        <p class="text-slate-300 text-sm leading-relaxed">
+                        <p class="text-slate-600 dark:text-slate-300 text-base leading-relaxed">
                             A Kubernetes-based microservices platform demonstrating automated CI/CD, GitOps deployment,
                             and cloud-native monitoring practices.
                         </p>
@@ -664,60 +994,69 @@
                         <!-- Tech Stack List -->
                         <div>
                             <span
-                                class="text-xs font-mono text-slate-400 block mb-2 font-semibold uppercase tracking-wider">Tech
+                                class="text-xs font-mono text-slate-500 dark:text-slate-400 block mb-2 font-semibold uppercase tracking-wider">Tech
                                 Stack &amp; Tools:</span>
                             <div class="flex flex-wrap gap-1.5 font-mono text-xs">
                                 <span
-                                    class="px-2.5 py-1 rounded bg-slate-950 text-slate-300 border border-slate-800">Docker</span>
+                                    class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Docker</span>
                                 <span
-                                    class="px-2.5 py-1 rounded bg-slate-950 text-slate-300 border border-slate-800">Kubernetes
+                                    class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Kubernetes
                                     (Kind)</span>
                                 <span
-                                    class="px-2.5 py-1 rounded bg-slate-950 text-slate-300 border border-slate-800">Jenkins</span>
+                                    class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Jenkins</span>
                                 <span
-                                    class="px-2.5 py-1 rounded bg-slate-950 text-slate-300 border border-slate-800">Argo
+                                    class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Argo
                                     CD</span>
                                 <span
-                                    class="px-2.5 py-1 rounded bg-slate-950 text-slate-300 border border-slate-800">Kustomize</span>
+                                    class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Kustomize</span>
                                 <span
-                                    class="px-2.5 py-1 rounded bg-slate-950 text-slate-300 border border-slate-800">Prometheus</span>
+                                    class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Prometheus</span>
                                 <span
-                                    class="px-2.5 py-1 rounded bg-slate-950 text-slate-300 border border-slate-800">Grafana</span>
+                                    class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Grafana</span>
                                 <span
-                                    class="px-2.5 py-1 rounded bg-slate-950 text-slate-300 border border-slate-800">Loki</span>
+                                    class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Loki</span>
                                 <span
-                                    class="px-2.5 py-1 rounded bg-slate-950 text-slate-300 border border-slate-800">Trivy</span>
+                                    class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-950 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800">Trivy</span>
                             </div>
                         </div>
 
                         <!-- Metrics Summary -->
                         <div
-                            class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-950/60 p-3 rounded-lg border border-slate-800/80 text-xs">
+                            class="grid grid-cols-2 sm:grid-cols-4 gap-3 bg-slate-50 dark:bg-slate-950/60 p-3 rounded-lg border border-slate-200 dark:border-slate-800/80 text-xs">
                             <div>
                                 <span class="text-slate-500 block text-[11px]">CI/CD Automation</span>
-                                <span class="text-emerald-400 font-mono font-bold">Jenkins + ArgoCD</span>
-                                <span class="text-slate-400 block text-[10px] mt-0.5">Automated deployment</span>
+                                <span class="text-emerald-600 dark:text-emerald-400 font-mono font-bold">Jenkins +
+                                    ArgoCD</span>
+                                <span class="text-slate-500 dark:text-slate-400 block text-[10px] mt-0.5">Automated
+                                    deployment</span>
                             </div>
                             <div>
                                 <span class="text-slate-500 block text-[11px]">HPA Scaling</span>
-                                <span class="text-emerald-400 font-mono font-bold">1 → 5 Replicas</span>
-                                <span class="text-slate-400 block text-[10px] mt-0.5">Scaled under load</span>
+                                <span class="text-emerald-600 dark:text-emerald-400 font-mono font-bold">1 → 5
+                                    Replicas</span>
+                                <span class="text-slate-500 dark:text-slate-400 block text-[10px] mt-0.5">Scaled under
+                                    load</span>
                             </div>
                             <div>
                                 <span class="text-slate-500 block text-[11px]">API Throughput</span>
-                                <span class="text-emerald-400 font-mono font-bold">260 req/sec</span>
-                                <span class="text-slate-400 block text-[10px] mt-0.5">ApacheBench benchmark</span>
+                                <span class="text-emerald-600 dark:text-emerald-400 font-mono font-bold">260
+                                    req/sec</span>
+                                <span class="text-slate-500 dark:text-slate-400 block text-[10px] mt-0.5">ApacheBench
+                                    benchmark</span>
                             </div>
                             <div>
                                 <span class="text-slate-500 block text-[11px]">Load Testing</span>
-                                <span class="text-emerald-400 font-mono font-bold">10,000 Reqs</span>
-                                <span class="text-slate-400 block text-[10px] mt-0.5">100 concurrent users</span>
+                                <span class="text-emerald-600 dark:text-emerald-400 font-mono font-bold">10,000
+                                    Reqs</span>
+                                <span class="text-slate-500 dark:text-slate-400 block text-[10px] mt-0.5">100 concurrent
+                                    users</span>
                             </div>
                         </div>
 
-                        <div class="pt-2 border-t border-slate-800/80 flex items-center justify-end">
+                        <div
+                            class="pt-2 border-t border-slate-200 dark:border-slate-800/80 flex items-center justify-end">
                             <button onclick="openModal('gitops-modal')"
-                                class="px-4 py-2 rounded-lg bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 text-xs font-mono font-bold border border-emerald-500/30 flex items-center gap-1.5 transition-all">
+                                class="px-4 py-2 rounded-lg bg-emerald-50 dark:bg-emerald-500/10 hover:bg-emerald-100 dark:hover:bg-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-bold border border-emerald-500/30 flex items-center gap-1.5 transition-all">
                                 Read Project Details <i class="fa-solid fa-arrow-right text-[10px]"></i>
                             </button>
                         </div>
@@ -727,268 +1066,170 @@
             </div>
         </section>
 
-        <section id="terminal" class="py-20 bg-slate-900/60 border-y border-slate-800/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-3xl mx-auto mb-10">
-                    <div
-                        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono font-medium mb-3">
-                        <i class="fa-solid fa-terminal"></i> Live Shell Interface
-                    </div>
-                    <h2 class="text-3xl font-extrabold text-white">Interactive DevOps Shell</h2>
-                    <p class="text-slate-400 text-sm mt-2">Test my CLI skills! Type commands directly or click the quick
-                        command shortcuts below to inspect cluster status, terraform plans, or docker stats.</p>
+        <!-- Skills Section -->
+        <section id="skills"
+            class="py-20 bg-slate-100/70 dark:bg-slate-900/60 border-y border-slate-200 dark:border-slate-800/80 relative overflow-hidden transition-colors duration-300">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div class="flex items-center gap-4 mb-10">
+                    <h2 class="section-label shrink-0">
+                        <span class="text-emerald-600 dark:text-emerald-400">03.</span> Skills
+                    </h2>
+                    <div class="h-px bg-slate-300 dark:bg-slate-700 flex-grow"></div>
                 </div>
 
-                <!-- Terminal Window -->
+                <!-- Terminal-style Skill Section -->
                 <div
-                    class="max-w-4xl mx-auto bg-slate-950 rounded-xl border border-slate-800 shadow-2xl overflow-hidden terminal-glow">
-                    <!-- Top Window Controls -->
-                    <div class="bg-slate-900 px-4 py-3 border-b border-slate-800 flex items-center justify-between">
-                        <div class="flex items-center gap-2">
-                            <div class="w-3 h-3 rounded-full bg-red-500 cursor-pointer" onclick="clearTerminal()"></div>
+                    class="bg-slate-950 rounded-xl border border-slate-800 overflow-hidden shadow-2xl font-mono text-sm">
+                    <div class="flex items-center gap-2 px-3 py-2.5 bg-slate-900 border-b border-slate-800">
+                        <div class="flex gap-1.5">
+                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
                             <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                            <span class="ml-2 font-mono text-xs text-slate-400">bash &mdash; anusree@devops-lab: ~
-                                (zsh)</span>
+                            <div class="w-3 h-3 rounded-full bg-emerald-500"></div>
                         </div>
-                        <button onclick="clearTerminal()"
-                            class="text-xs font-mono text-slate-500 hover:text-slate-300">Clear Screen</button>
+                        <span class="ml-2 text-slate-400 text-xs">anusree@devops-stack:~/skills$ ls -la</span>
                     </div>
 
-                    <!-- Quick Command Helper Chips -->
-                    <div
-                        class="px-4 py-2 bg-slate-900/40 border-b border-slate-800/80 flex flex-wrap items-center gap-2 text-xs font-mono text-slate-400">
-                        <span class="text-slate-500">Quick commands:</span>
-                        <button onclick="runCommand('kubectl get pods')"
-                            class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-emerald-400">kubectl get
-                            pods</button>
-                        <button onclick="runCommand('terraform plan')"
-                            class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-cyan-400">terraform
-                            plan</button>
-                        <button onclick="runCommand('docker ps')"
-                            class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-amber-400">docker
-                            ps</button>
-                        <button onclick="runCommand('cat resume.txt')"
-                            class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-purple-400">cat
-                            resume.txt</button>
-                        <button onclick="runCommand('help')"
-                            class="px-2 py-0.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-300">help</button>
-                    </div>
-
-                    <!-- Output Console Area -->
-                    <div id="terminal-output"
-                        class="p-5 font-mono text-xs text-slate-300 h-80 overflow-y-auto space-y-3 leading-relaxed">
-                        <div>
-                            <span class="text-emerald-400">Welcome to Anusree Manoj's Junior DevOps Interactive Shell
-                                v1.0.0</span><br>
-                            <span class="text-slate-500">Type <span class="text-emerald-300">help</span> or click any
-                                command chip above to start exploring!</span>
+                    <div class="p-4 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 text-slate-300">
+                        <div class="p-5">
+                            <div class="space-y-5">
+                                <!-- Cloud -->
+                                <div>
+                                    <div class="text-[#58a6ff] mb-3">[cloud_platforms]</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#ff7b72] skill-tag">AWS</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#ff7b72] skill-tag">EC2</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#ff7b72] skill-tag">IAM</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#ff7b72] skill-tag">S3</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#ff7b72] skill-tag">VPC</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#ff7b72] skill-tag">Security Groups</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#ff7b72] skill-tag">Azure</span>
+                                    </div>
+                                </div>
+                        
+                                <!-- Containers -->
+                                <div>
+                                    <div class="text-[#58a6ff] mb-3">[containerization_&_orchestration]</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#79c0ff] skill-tag">Docker</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#79c0ff] skill-tag">Docker Compose</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#79c0ff] skill-tag">Kubernetes</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#79c0ff] skill-tag">Kind</span>
+                                    </div>
+                                </div>
+                        
+                                <!-- CI/CD -->
+                                <div>
+                                    <div class="text-[#58a6ff] mb-3">[ci_cd_&_gitops]</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#7ee787] skill-tag">Jenkins</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#7ee787] skill-tag">Git</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#7ee787] skill-tag">GitHub</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#7ee787] skill-tag">GitHub Actions</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#7ee787] skill-tag">Argo CD</span>
+                                    </div>
+                                </div>
+                        
+                                <!-- IaC & Config -->
+                                <div>
+                                    <div class="text-[#58a6ff] mb-3">[infrastructure_as_code_&_config]</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#e3b341] skill-tag">Terraform</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#e3b341] skill-tag">Ansible</span>
+                                    </div>
+                                </div>
+                        
+                                <!-- Observability -->
+                                <div>
+                                    <div class="text-[#58a6ff] mb-3">[observability]</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#d2a8ff] skill-tag">Prometheus</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#d2a8ff] skill-tag">Grafana</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#d2a8ff] skill-tag">Loki</span>
+                                    </div>
+                                </div>
+                        
+                                <!-- OS & Scripting -->
+                                <div>
+                                    <div class="text-[#58a6ff] mb-3">[os_&_scripting]</div>
+                                    <div class="flex flex-wrap gap-2">
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#f0883e] skill-tag">Linux</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#f0883e] skill-tag">Bash</span>
+                                        <span class="px-2 py-0.5 border border-[#30363d] rounded text-[#f0883e] skill-tag">Python</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-
-                    <!-- Command Input Bar -->
-                    <div
-                        class="px-5 py-3 bg-slate-900/90 border-t border-slate-800 flex items-center gap-2 font-mono text-xs">
-                        <span class="text-emerald-400 font-bold">anusree@devops-lab:~$</span>
-                        <input type="text" id="terminal-input"
-                            class="flex-grow bg-transparent text-slate-100 outline-none focus:ring-0 border-none font-mono text-xs placeholder-slate-600"
-                            placeholder="Type a command (e.g. kubectl get pods, terraform plan, cat resume.txt)..."
-                            autocomplete="off" onkeydown="handleTerminalKeydown(event)">
-                        <button onclick="submitTerminalInput()"
-                            class="px-3 py-1 bg-emerald-500 text-slate-950 font-bold rounded hover:bg-emerald-400 text-xs">Run</button>
+                    <div class="px-4 py-2 bg-slate-900 border-t border-slate-800 text-xs text-slate-500">
+                        
                     </div>
                 </div>
             </div>
         </section>
 
-        <section class="py-16 border-b border-slate-800/80">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-
-                    <!-- Left: Certifications -->
-                    <div>
-                        <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase mb-2">Verified
-                            Credentials</h2>
-                        <h3 class="text-2xl font-bold text-white mb-6">Certifications</h3>
-
-                        <div class="space-y-4">
-                            <div
-                                class="p-4 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-emerald-500/40 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-lg bg-amber-500/10 border border-amber-500/30 flex items-center justify-center text-amber-400 text-2xl">
-                                    <i class="fa-brands fa-aws"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-bold text-white">AWS Certified Solutions Architect &ndash;
-                                        Associate</h4>
-                                    <p class="text-xs text-slate-400 font-mono mt-0.5">Amazon Web Services &bull;
-                                        Verified</p>
-                                </div>
-                            </div>
-
-                            <div
-                                class="p-4 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-emerald-500/40 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-lg bg-cyan-500/10 border border-cyan-500/30 flex items-center justify-center text-cyan-400 text-2xl">
-                                    <i class="fa-solid fa-dharmachakra"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-bold text-white">Certified Kubernetes Administrator (CKA
-                                        Candidate)</h4>
-                                    <p class="text-xs text-slate-400 font-mono mt-0.5">Linux Foundation &bull; Preparing
-                                        / Exam Scheduled</p>
-                                </div>
-                            </div>
-
-                            <div
-                                class="p-4 bg-slate-900 rounded-xl border border-slate-800 flex items-center gap-4 hover:border-emerald-500/40 transition-all">
-                                <div
-                                    class="w-12 h-12 rounded-lg bg-purple-500/10 border border-purple-500/30 flex items-center justify-center text-purple-400 text-2xl">
-                                    <i class="fa-solid fa-cubes"></i>
-                                </div>
-                                <div>
-                                    <h4 class="text-sm font-bold text-white">HashiCorp Certified: Terraform Associate
-                                    </h4>
-                                    <p class="text-xs text-slate-400 font-mono mt-0.5">HashiCorp &bull; Infrastructure
-                                        as Code</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Right: Education -->
-                    <div>
-                        <h2 class="text-xs font-mono font-bold tracking-widest text-emerald-400 uppercase mb-2">Academic
-                            Background</h2>
-                        <h3 class="text-2xl font-bold text-white mb-6">Education</h3>
-
-                        <div class="space-y-4">
-                            <div
-                                class="p-5 bg-slate-900 rounded-xl border border-slate-800 hover:border-emerald-500/40 transition-all space-y-2">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <h4 class="text-base font-bold text-white">SRM Institute of Science and
-                                            Technology, Chennai</h4>
-                                        <p class="text-xs text-emerald-400 font-mono mt-0.5">B.Sc Computer Science
-                                            &bull; 2023 &ndash; 2026</p>
-                                    </div>
-                                    <span
-                                        class="px-2.5 py-1 rounded bg-emerald-500/10 text-emerald-400 text-xs font-mono font-bold">CGPA:
-                                        9.77</span>
-                                </div>
-                            </div>
-
-                            <div
-                                class="p-5 bg-slate-900 rounded-xl border border-slate-800 hover:border-cyan-500/40 transition-all space-y-2">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <h4 class="text-base font-bold text-white">Union Higher Secondary School, Mambra
-                                        </h4>
-                                        <p class="text-xs text-cyan-400 font-mono mt-0.5">Higher Secondary Education
-                                            &bull; 2022</p>
-                                    </div>
-                                    <span
-                                        class="px-2.5 py-1 rounded bg-cyan-500/10 text-cyan-400 text-xs font-mono font-bold">97.42
-                                        %</span>
-                                </div>
-                            </div>
-
-                            <div
-                                class="p-5 bg-slate-900 rounded-xl border border-slate-800 hover:border-teal-500/40 transition-all space-y-2">
-                                <div class="flex justify-between items-start">
-                                    <div>
-                                        <h4 class="text-base font-bold text-white">St. Joseph’s H.S, Meloor</h4>
-                                        <p class="text-xs text-teal-300 font-mono mt-0.5">High School Education &bull;
-                                            2020</p>
-                                    </div>
-                                    <span
-                                        class="px-2.5 py-1 rounded bg-teal-500/10 text-teal-300 text-xs font-mono font-bold">99.9
-                                        %</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </section>
-
+        <!-- Contact Section -->
         <section id="contact" class="py-20 relative">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="bg-slate-900 border border-slate-800/90 rounded-2xl p-8 sm:p-10 shadow-xl">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-                    <div class="text-center max-w-xl mx-auto mb-8">
-                        <div
-                            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 text-xs font-mono font-medium mb-3">
-                            <i class="fa-solid fa-paper-plane"></i> Contact
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="flex items-center gap-4 mb-10">
+                            <h2 class="section-label shrink-0">
+                                <span class="text-emerald-600 dark:text-emerald-400">04.</span> Get In Touch
+                            </h2>
+                            <div class="h-px bg-slate-300 dark:bg-slate-700 flex-grow"></div>
                         </div>
-                        <h2 class="text-3xl font-extrabold text-white">Get In Touch</h2>
-                        <p class="text-slate-400 text-sm mt-2 leading-relaxed">
-                            Open to Junior DevOps, Cloud Infrastructure, or Platform Engineering opportunities.
+                        <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white tracking-tight">Let's
+                            Connect &amp; Collaborate</h2>
+                        <p class="text-slate-600 dark:text-slate-400 text-base leading-relaxed">
+                            I am currently looking for full-time Junior DevOps, Platform Engineering, or Cloud
+                            Infrastructure roles and internships. Feel free to reach out directly via email or LinkedIn!
                         </p>
                     </div>
 
-                    <!-- Direct Quick Contact Badges -->
-                    <div class="flex flex-wrap items-center justify-center gap-4 mb-8 pb-8 border-b border-slate-800">
-                        <a href="mailto:anusreemanoj@gmail.com"
-                            class="px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-emerald-500/50 hover:text-emerald-400 text-slate-300 font-mono text-xs flex items-center gap-2 transition-all">
-                            <i class="fa-solid fa-envelope text-emerald-400"></i>
-                            <span>anusreemanoj@gmail.com</span>
-                        </a>
-                        <a href="https://www.linkedin.com/in/anusree15/" target="_blank" rel="noopener noreferrer"
-                            class="px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-cyan-500/50 hover:text-cyan-400 text-slate-300 font-mono text-xs flex items-center gap-2 transition-all">
-                            <i class="fa-brands fa-linkedin text-cyan-400"></i>
-                            <span>LinkedIn Profile</span>
-                        </a>
-                        <a href="https://github.com/anusree-ux/" target="_blank" rel="noopener noreferrer"
-                            class="px-4 py-2.5 rounded-xl bg-slate-950 border border-slate-800 hover:border-slate-500 hover:text-white text-slate-300 font-mono text-xs flex items-center gap-2 transition-all">
-                            <i class="fa-brands fa-github text-emerald-400"></i>
-                            <span>GitHub Profile</span>
-                        </a>
-                    </div>
-
-                    <!-- Simple Form -->
-                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-4 max-w-2xl mx-auto">
-                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                            <div>
-                                <label class="block text-xs font-mono text-slate-400 mb-1.5">Name</label>
-                                <input type="text" required id="form-name" placeholder="Your Name"
-                                    class="w-full bg-slate-950 border border-slate-800/90 rounded-xl px-4 py-3 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition-colors">
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-mono text-slate-400 mb-1.5">Email</label>
-                                <input type="email" required id="form-email" placeholder="name@example.com"
-                                    class="w-full bg-slate-950 border border-slate-800/90 rounded-xl px-4 py-3 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition-colors">
-                            </div>
-                        </div>
-
-                        <div>
-                            <label class="block text-xs font-mono text-slate-400 mb-1.5">Message</label>
-                            <textarea required id="form-message" rows="4" placeholder="Your message..."
-                                class="w-full bg-slate-950 border border-slate-800/90 rounded-xl px-4 py-3 text-sm text-slate-200 placeholder-slate-600 focus:outline-none focus:border-emerald-500 transition-colors resize-none"></textarea>
-                        </div>
-
-                        <button type="submit" id="form-submit-btn"
-                            class="w-full py-3.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-sm transition-all shadow-md shadow-emerald-500/20 flex items-center justify-center gap-2">
-                            <i class="fa-solid fa-paper-plane text-xs"></i> Send Message
-                        </button>
-                    </form>
-
-                    <!-- Submission Confirmation Box -->
-                    <div id="form-success" class="hidden text-center py-6 space-y-3">
+                    <!-- Contact Form Card -->
+                    <div class="lg:col-span-7">
                         <div
-                            class="w-12 h-12 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-xl mx-auto">
-                            <i class="fa-solid fa-check"></i>
+                            class="p-6 sm:p-8 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-md">
+                            <form id="contact-form" onsubmit="handleFormSubmit(event)"
+                                class="space-y-4 font-sans text-sm">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div>
+                                        <label
+                                            class="block text-xs font-mono text-slate-600 dark:text-slate-400 mb-1">Your
+                                            Name</label>
+                                        <input type="text" required 
+                                            class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition-colors">
+                                    </div>
+                                    <div>
+                                        <label
+                                            class="block text-xs font-mono text-slate-600 dark:text-slate-400 mb-1">Email
+                                            Address</label>
+                                        <input type="email" required 
+                                            class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition-colors">
+                                    </div>
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-xs font-mono text-slate-600 dark:text-slate-400 mb-1">Subject</label>
+                                    <input type="text" required 
+                                        class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition-colors">
+                                </div>
+                                <div>
+                                    <label
+                                        class="block text-xs font-mono text-slate-600 dark:text-slate-400 mb-1">Message</label>
+                                    <textarea rows="4" required
+                                        class="w-full px-3.5 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 text-slate-900 dark:text-slate-100 focus:outline-none focus:border-emerald-500 transition-colors"></textarea>
+                                </div>
+
+                                <div id="form-alert" class="hidden p-3 rounded-lg text-xs font-mono"></div>
+
+                                <button type="submit"
+                                    class="w-full py-3 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold transition-all shadow-md shadow-emerald-500/20 flex items-center justify-center gap-2">
+                                    <i class="fa-solid fa-paper-plane"></i> Send Message
+                                </button>
+                            </form>
                         </div>
-                        <h4 class="text-lg font-bold text-white">Message Sent!</h4>
-                        <p class="text-slate-400 text-xs font-mono">Thank you for reaching out. I will get back to you
-                            shortly.</p>
-                        <button onclick="resetContactForm()"
-                            class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-mono rounded-lg transition-colors">Send
-                            Another Message</button>
                     </div>
 
                 </div>
@@ -996,174 +1237,527 @@
         </section>
     </main>
 
-    <div id="gitops-modal"
-        class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
-        <div
-            class="bg-slate-900 border border-slate-800 rounded-xl max-w-3xl w-full p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto">
-            <div class="flex justify-between items-center border-b border-slate-800 pb-4">
-                <div>
-                    <span
-                        class="px-2.5 py-0.5 rounded bg-emerald-500/10 text-emerald-400 text-xs font-mono border border-emerald-500/30">Detailed
-                        Overview</span>
-                    <h3 class="text-xl font-bold text-white font-mono mt-1">Microservices GitOps Platform</h3>
-                </div>
-                <button onclick="closeModal('gitops-modal')"
-                    class="text-slate-400 hover:text-white text-2xl">&times;</button>
-            </div>
-
-            <div class="space-y-3">
-                <h4
-                    class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-2">
-                    <i class="fa-solid fa-sitemap"></i> System Architecture & Pipeline Diagram
-                </h4>
-
-                <!-- Architecture Diagram Container -->
-                <div
-                    class="bg-slate-950 p-4 sm:p-5 rounded-xl border border-slate-800 space-y-2 font-mono text-xs text-slate-300">
-                    <div class="flex items-center justify-between border-b border-slate-800 pb-2 mb-2 text-slate-400">
-                        <span class="flex items-center gap-2"><i class="fa-solid fa-network-wired text-emerald-400"></i>
-                            Platform Architecture Overview</span>
-                        <span class="text-[10px] text-emerald-400">Kubernetes (Kind)</span>
-                    </div>
-                    <pre class="overflow-x-auto text-[11px] leading-snug text-emerald-400/90 py-2">
-                  GitHub
-                    |
-             Jenkins Pipeline
-                    |
-             Docker Images
-                    |
-              Docker Hub
-                    |
-        -------------------------
-
-        GitHub (Kubernetes YAML)
-                    |
-                  ArgoCD
-                    |
-        ┌────────────────────┐
-        │ Kubernetes Cluster │
-        │       (Kind)       │
-        └─────────┬──────────┘
-                  |
-            NGINX Ingress
-                  |
-     ┌────────────┼────────────┐
-     |            |            |
-  Frontend   User Service  Order Service
-     |            |            |
-     └────────────┼────────────┘
-                  |
-              PostgreSQL
-
- Monitoring:
- Prometheus + Loki → Grafana</pre>
-                </div>
-            </div>
-
-            <!-- Features Section -->
-            <div class="space-y-3">
-                <h4 class="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider">Key Features</h4>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
-                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-800/80">
-                        <strong class="text-slate-100 block mb-1 font-mono text-emerald-400">⚡ Automated CI/CD
-                            Pipeline</strong>
-                        <p class="text-slate-400">Git push triggers the Jenkins pipeline, which runs validation checks,
-                            builds Docker images, performs Trivy security scans, pushes images to Docker Hub, and
-                            updates Kubernetes deployment configurations for ArgoCD synchronization.</p>
-                    </div>
-                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-800/80">
-                        <strong class="text-slate-100 block mb-1 font-mono text-emerald-400">🛡️ DevSecOps &amp;
-                            Security</strong>
-                        <p class="text-slate-400">Integrated Trivy container image scanning into the CI pipeline and
-                            implemented Kubernetes NetworkPolicies to control service communication and restrict
-                            database access.</p>
-                    </div>
-                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-800/80">
-                        <strong class="text-slate-100 block mb-1 font-mono text-emerald-400">📈 Monitoring &amp;
-                            Logging</strong>
-                        <p class="text-slate-400">Implemented Kubernetes monitoring using kube-prometheus-stack for
-                            cluster and application metrics, Grafana dashboards for visualization, and Loki with
-                            Promtail for centralized log collection.</p>
-                    </div>
-                    <div class="p-3 bg-slate-950 rounded-lg border border-slate-800/80">
-                        <strong class="text-slate-100 block mb-1 font-mono text-emerald-400">⚙️ Kubernetes Configuration
-                            &amp; Scaling</strong>
-                        <p class="text-slate-400">Used Kustomize overlays to manage environment-specific configurations
-                            without duplication and configured Horizontal Pod Autoscaling (HPA) to automatically scale
-                            application replicas based on resource usage.</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex justify-between items-center border-t border-slate-800 pt-4">
-                <a href="https://github.com/anusree-ux/microservice-kubernetes" target="_blank"
-                    rel="noopener noreferrer"
-                    class="text-xs font-mono text-emerald-400 hover:underline flex items-center gap-1.5">
-                    <i class="fa-brands fa-github text-sm"></i> Open Repository on GitHub
-                </a>
-                <button onclick="closeModal('gitops-modal')"
-                    class="px-4 py-2 bg-slate-800 hover:bg-slate-700 text-xs font-mono rounded text-slate-200">Close</button>
-            </div>
-        </div>
-    </div>
-
-    <footer class="bg-slate-950 border-t border-slate-800 py-12 text-slate-400 text-xs">
-        <div
-            class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6">
+    <!-- Site Footer -->
+    <footer class="border-t border-[var(--border)] bg-[var(--panel)] py-6 text-[0.72rem] tracking-[0.18em] text-[var(--muted)]">
+        <div class="mx-auto flex max-w-6xl flex-col gap-4 px-4 sm:flex-row sm:items-center sm:justify-between lg:px-8">
             <div class="flex items-center gap-3">
-                <div
-                    class="w-8 h-8 rounded bg-emerald-950 border border-emerald-500/30 flex items-center justify-center font-mono text-emerald-400 font-bold">
-                    &gt;_
+                <div class="flex h-10 w-10 items-center justify-center rounded-2xl bg-emerald-600 text-sm font-semibold text-white">
+                    AM
                 </div>
-                <div>
-                    <span class="font-bold text-slate-200 block text-sm">Anusree Manoj &bull; Junior DevOps
-                        Portfolio</span>
-                    <span class="text-slate-500 font-mono">Ready to contribute to your engineering team</span>
+                <div class="leading-none">
+                    <div class="font-semibold uppercase tracking-[0.24em] text-[var(--text)]">Anusree Manoj</div>
+                    <div class="mt-1 text-[0.62rem] uppercase tracking-[0.24em] text-[var(--muted)]">© 2026 · All rights reserved</div>
                 </div>
             </div>
 
-            <!-- Social Links -->
-            <div class="flex items-center gap-6 text-lg">
-                <a href="https://github.com/anusree-ux/" target="_blank" rel="noopener"
-                    class="text-slate-400 hover:text-emerald-400 transition-colors" title="GitHub"><i
-                        class="fa-brands fa-github"></i></a>
-                <a href="https://www.linkedin.com/in/anusree15/" target="_blank" rel="noopener"
-                    class="text-slate-400 hover:text-emerald-400 transition-colors" title="LinkedIn"><i
-                        class="fa-brands fa-linkedin"></i></a>
-                <a href="mailto:anusreemanoj@gmail.com" class="text-slate-400 hover:text-emerald-400 transition-colors"
-                    title="Gmail"><i class="fa-solid fa-envelope"></i></a>
-            </div>
-
-            <div class="font-mono text-slate-500 text-[11px]">
-                &copy; 2026 Anusree Manoj.
+            <div class="flex flex-wrap items-center gap-3 text-[0.7rem] uppercase tracking-[0.24em] text-[var(--muted)] sm:justify-end">
+                <a href="https://www.linkedin.com/in/anusree15/" target="_blank" rel="noopener noreferrer"
+                    class="transition-colors hover:text-[var(--accent)]">LinkedIn</a>
+                <span class="text-[var(--border)]">•</span>
+                <a href="https://github.com/anusree-ux/" target="_blank" rel="noopener noreferrer"
+                    class="transition-colors hover:text-[var(--accent)]">GitHub</a>
+                <span class="text-[var(--border)]">•</span>
+                <a href="mailto:anusree@example.com" class="transition-colors hover:text-[var(--accent)]">Email</a>
+                <span class="text-[var(--border)]">•</span>
+                <a href="#hero" class="transition-colors hover:text-[var(--accent)]">Back to top ↑</a>
             </div>
         </div>
     </footer>
 
+    <!-- GitOps Project Details Modal -->
+    <div id="gitops-modal"
+        class="fixed inset-0 z-[90] hidden bg-slate-950/80 backdrop-blur-sm flex items-center justify-center p-4 overflow-y-auto">
+        <div
+            class="bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-2xl max-w-2xl w-full p-6 sm:p-8 space-y-6 shadow-2xl relative">
+            <button onclick="closeModal('gitops-modal')"
+                class="absolute top-4 right-4 text-slate-400 hover:text-slate-100 p-2 rounded-lg text-lg">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="space-y-2">
+                <span
+                    class="px-2.5 py-1 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 text-xs font-mono font-bold">Capstone
+                    Architecture</span>
+                <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Microservices GitOps Platform</h3>
+            </div>
+
+            <div class="space-y-4 text-sm sm:text-base text-slate-600 dark:text-slate-300 leading-relaxed">
+                <p>
+                    This project highlights end-to-end continuous deployment using GitOps principles on a local
+                    Kubernetes cluster created with Kind.
+                </p>
+                <div
+                    class="bg-slate-50 dark:bg-slate-950 p-4 rounded-xl border border-slate-200 dark:border-slate-800 space-y-2 font-mono text-xs">
+                    <div class="text-emerald-500 font-bold mb-2">&gt; PIPELINE ARCHITECTURE HIGHLIGHTS</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Code commit
+                        triggers automated build &amp; unit tests in Jenkins.</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Trivy scans
+                        docker images for Critical/High vulnerabilities before pushing to registry.</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Argo CD
+                        continuously syncs Kustomize manifests from Git into the Kubernetes cluster.</div>
+                    <div class="flex items-center gap-2"><i class="fa-solid fa-check text-emerald-400"></i> Prometheus
+                        monitors CPU/Memory utilization and triggers HPA scaling from 1 to 5 replicas.</div>
+                </div>
+            </div>
+
+            <div class="flex justify-between items-center pt-4 border-t border-slate-200 dark:border-slate-800">
+                <a href="https://github.com/anusree-ux/microservice-kubernetes" target="_blank"
+                    rel="noopener noreferrer"
+                    class="px-4 py-2 rounded-lg bg-emerald-500 text-slate-950 font-bold text-xs font-mono flex items-center gap-2">
+                    <i class="fa-brands fa-github"></i> Repository
+                </a>
+                <button onclick="closeModal('gitops-modal')"
+                    class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-mono text-xs">
+                    Close Window
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Page Interactions -->
     <script>
+        function initializeNavbarNetwork() {
+            const shell = document.querySelector('.site-header-shell');
+            const canvas = document.getElementById('navbar-network');
+            if (!shell || !canvas) return;
+
+            const context = canvas.getContext('2d');
+            const mouse = { x: -1000, y: -1000 };
+            let nodes = [];
+            let width = 0;
+            let height = 0;
+
+            function createNodes() {
+                const count = width < 640 ? 20 : 36;
+                nodes = Array.from({ length: count }, (_, index) => {
+                    const speed = Math.random() < 0.22 ? 0.22 : 0.12;
+                    const direction = Math.random() < 0.5 ? -1 : 1;
+                    return {
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: direction * speed * (0.6 + Math.random() * 0.8),
+                        vy: (Math.random() - 0.5) * speed * 0.8,
+                        radius: 1.2 + Math.random() * 1.2,
+                        driftFactor: index % 3 === 0 ? 1.2 : 1
+                    };
+                });
+            }
+
+            function resizeCanvas() {
+                const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+                const bounds = shell.getBoundingClientRect();
+                width = bounds.width;
+                height = bounds.height;
+                canvas.width = width * pixelRatio;
+                canvas.height = height * pixelRatio;
+                context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+                createNodes();
+            }
+
+            function drawNetwork() {
+                context.clearRect(0, 0, width, height);
+
+                nodes.forEach((node) => {
+                    const driftX = node.vx * node.driftFactor;
+                    const driftY = node.vy * node.driftFactor;
+                    node.x += driftX;
+                    node.y += driftY;
+
+                    if (node.x < -12 || node.x > width + 12) {
+                        node.vx *= -1;
+                    }
+                    if (node.y < -12 || node.y > height + 12) {
+                        node.vy *= -1;
+                    }
+
+                    node.vx += (Math.random() - 0.5) * 0.0015;
+                    node.vy += (Math.random() - 0.5) * 0.0015;
+                    node.vx *= 0.999;
+                    node.vy *= 0.999;
+                });
+
+                for (let i = 0; i < nodes.length; i += 1) {
+                    for (let j = i + 1; j < nodes.length; j += 1) {
+                        const first = nodes[i];
+                        const second = nodes[j];
+                        const dx = first.x - second.x;
+                        const dy = first.y - second.y;
+                        const distance = Math.hypot(dx, dy);
+
+                        if (distance < 100) {
+                            const opacity = (1 - distance / 100) * 0.18;
+                            context.beginPath();
+                            context.moveTo(first.x, first.y);
+                            context.lineTo(second.x, second.y);
+                            context.strokeStyle = `rgba(34, 197, 94, ${opacity})`;
+                            context.lineWidth = 0.7;
+                            context.stroke();
+                        }
+                    }
+                }
+
+                nodes.forEach((node) => {
+                    const distanceToMouse = Math.hypot(node.x - mouse.x, node.y - mouse.y);
+                    const proximity = mouse.x > -1000 ? Math.max(0, 1 - distanceToMouse / 110) : 0;
+                    const radius = node.radius + proximity * 1.6;
+                    const alpha = 0.35 + proximity * 0.25;
+
+                    context.beginPath();
+                    context.arc(node.x, node.y, radius, 0, Math.PI * 2);
+                    context.fillStyle = `rgba(74, 222, 128, ${alpha})`;
+                    context.shadowBlur = 4 + proximity * 8;
+                    context.shadowColor = 'rgba(74, 222, 128, 0.6)';
+                    context.fill();
+                    context.shadowBlur = 0;
+                });
+
+                window.requestAnimationFrame(drawNetwork);
+            }
+
+            shell.addEventListener('mousemove', (event) => {
+                const bounds = shell.getBoundingClientRect();
+                mouse.x = event.clientX - bounds.left;
+                mouse.y = event.clientY - bounds.top;
+            });
+            shell.addEventListener('mouseleave', () => {
+                mouse.x = -1000;
+                mouse.y = -1000;
+            });
+            window.addEventListener('resize', resizeCanvas);
+
+            resizeCanvas();
+            drawNetwork();
+        }
+
+        // Interactive DevOps Cluster Network Background
+        function initializeDevOpsNetwork() {
+            const hero = document.getElementById('hero');
+            const canvas = document.getElementById('devops-network');
+            if (!hero || !canvas) return;
+
+            const context = canvas.getContext('2d');
+            const mouse = { x: -1000, y: -1000 };
+            const repulsionRadius = 120;
+            const attractionRadius = 180;
+            let nodes = [];
+            let width = 0;
+            let height = 0;
+
+            function createNodes() {
+                const count = width < 640 ? 70 : 120;
+                nodes = Array.from({ length: count }, (_, index) => {
+                    const speed = Math.random() < 0.24 ? 0.28 : 0.16;
+                    const direction = Math.random() < 0.5 ? -1 : 1;
+                    return {
+                        x: Math.random() * width,
+                        y: Math.random() * height,
+                        vx: direction * speed * (0.6 + Math.random() * 0.8),
+                        vy: (Math.random() - 0.5) * speed * 0.8,
+                        radius: 1.4 + Math.random() * 1.8,
+                        driftFactor: index % 4 === 0 ? 1.25 : 1
+                    };
+                });
+            }
+
+            function resizeCanvas() {
+                const pixelRatio = Math.min(window.devicePixelRatio || 1, 2);
+                const bounds = hero.getBoundingClientRect();
+                width = bounds.width;
+                height = bounds.height;
+                canvas.width = width * pixelRatio;
+                canvas.height = height * pixelRatio;
+                context.setTransform(pixelRatio, 0, 0, pixelRatio, 0, 0);
+                createNodes();
+            }
+
+            function drawNetwork() {
+                context.clearRect(0, 0, width, height);
+
+                const mouseActive = mouse.x > -1000 && mouse.y > -1000;
+
+                nodes.forEach((node) => {
+                    const driftX = node.vx * node.driftFactor;
+                    const driftY = node.vy * node.driftFactor;
+                    node.x += driftX;
+                    node.y += driftY;
+
+                    if (node.x < -12 || node.x > width + 12) {
+                        node.vx *= -1;
+                    }
+                    if (node.y < -12 || node.y > height + 12) {
+                        node.vy *= -1;
+                    }
+
+                    node.vx += (Math.random() - 0.5) * 0.0018;
+                    node.vy += (Math.random() - 0.5) * 0.0018;
+                    node.vx *= 0.998;
+                    node.vy *= 0.998;
+                });
+
+                if (mouseActive) {
+                    nodes.forEach((node) => {
+                        const dx = node.x - mouse.x;
+                        const dy = node.y - mouse.y;
+                        const distance = Math.hypot(dx, dy) || 1;
+
+                        if (distance < repulsionRadius) {
+                            const force = ((repulsionRadius - distance) / repulsionRadius) * 0.18;
+                            node.vx += (dx / distance) * force;
+                            node.vy += (dy / distance) * force;
+                        } else if (distance < attractionRadius) {
+                            const force = ((attractionRadius - distance) / attractionRadius) * 0.008;
+                            node.vx -= (dx / distance) * force;
+                            node.vy -= (dy / distance) * force;
+                        }
+                    });
+                }
+
+                for (let i = 0; i < nodes.length; i += 1) {
+                    for (let j = i + 1; j < nodes.length; j += 1) {
+                        const first = nodes[i];
+                        const second = nodes[j];
+                        const dx = first.x - second.x;
+                        const dy = first.y - second.y;
+                        const distance = Math.hypot(dx, dy);
+
+                        if (distance < 185) {
+                            const opacity = (1 - distance / 185) * 0.32;
+                            context.beginPath();
+                            context.moveTo(first.x, first.y);
+                            context.lineTo(second.x, second.y);
+                            context.strokeStyle = `rgba(34, 197, 94, ${opacity})`;
+                            context.lineWidth = 0.7;
+                            context.stroke();
+                        }
+                    }
+                }
+
+                nodes.forEach((node) => {
+                    const distanceToMouse = mouseActive ? Math.hypot(node.x - mouse.x, node.y - mouse.y) : Infinity;
+                    const proximity = mouseActive ? Math.max(0, 1 - distanceToMouse / 180) : 0;
+                    const radius = node.radius + proximity * 3.2;
+                    const color = proximity > 0.25 ? '34, 211, 238' : '74, 222, 128';
+                    const alpha = 0.45 + proximity * 0.35;
+
+                    context.beginPath();
+                    context.arc(node.x, node.y, radius, 0, Math.PI * 2);
+                    context.fillStyle = `rgba(${color}, ${alpha})`;
+                    context.shadowBlur = 6 + proximity * 10;
+                    context.shadowColor = `rgba(${color}, 0.75)`;
+                    context.fill();
+                    context.shadowBlur = 0;
+                });
+
+                window.requestAnimationFrame(drawNetwork);
+            }
+
+            hero.addEventListener('mousemove', (event) => {
+                const bounds = hero.getBoundingClientRect();
+                mouse.x = event.clientX - bounds.left;
+                mouse.y = event.clientY - bounds.top;
+            });
+            hero.addEventListener('mouseleave', () => {
+                mouse.x = -1000;
+                mouse.y = -1000;
+            });
+            window.addEventListener('resize', resizeCanvas);
+
+            resizeCanvas();
+            drawNetwork();
+        }
+
+        initializeNavbarNetwork();
+        initializeDevOpsNetwork();
+
+        function initializeGitOpsHighlights() {
+            const flowShell = document.querySelector('.gitops-flow-shell');
+            if (!flowShell) return;
+
+            const stageMap = {
+                main: ['main', 'main-feat'],
+                feat: ['main-feat', 'feat-pipeline', 'feat'],
+                pipeline: ['feat-pipeline', 'pipeline-checks', 'pipeline'],
+                checks: ['pipeline-checks', 'checks-merge', 'checks'],
+                merge: ['checks-merge', 'merge-deploy', 'merge'],
+                deploy: ['merge-deploy', 'deploy']
+            };
+
+            const updateHighlight = (activeStage) => {
+                const activeTokens = stageMap[activeStage] || [];
+                const nodes = flowShell.querySelectorAll('.gitops-node');
+                const links = flowShell.querySelectorAll('.gitops-link');
+                const stages = flowShell.querySelectorAll('.gitops-stage');
+
+                nodes.forEach((node) => {
+                    const isActive = activeTokens.includes(node.dataset.node);
+                    node.classList.toggle('is-highlighted', isActive);
+                    node.classList.toggle('is-dimmed', !isActive && Boolean(activeStage));
+                });
+
+                links.forEach((link) => {
+                    const isActive = activeTokens.includes(link.dataset.link);
+                    link.classList.toggle('is-highlighted', isActive);
+                    link.classList.toggle('is-dimmed', !isActive && Boolean(activeStage));
+                });
+
+                stages.forEach((stage) => {
+                    const isActive = stage.dataset.stage === activeStage;
+                    stage.classList.toggle('is-highlighted', isActive);
+                    stage.classList.toggle('is-dimmed', !isActive && Boolean(activeStage));
+                });
+            };
+
+            flowShell.querySelectorAll('.gitops-stage').forEach((stage) => {
+                stage.addEventListener('mouseenter', () => updateHighlight(stage.dataset.stage));
+                stage.addEventListener('focus', () => updateHighlight(stage.dataset.stage));
+                stage.addEventListener('mouseleave', () => updateHighlight(null));
+                stage.addEventListener('blur', () => updateHighlight(null));
+            });
+
+            updateHighlight(null);
+        }
+
+        initializeGitOpsHighlights();
+
+        // Mouse Cursor Effect
+        function initializeCursorGlow() {
+            const cursorGlow = document.getElementById('cursor-glow');
+            const finePointer = window.matchMedia('(pointer: fine)');
+
+            if (!cursorGlow || !finePointer.matches) return;
+
+            document.addEventListener('mousemove', (event) => {
+                cursorGlow.style.left = `${event.clientX}px`;
+                cursorGlow.style.top = `${event.clientY}px`;
+                cursorGlow.classList.add('is-active');
+            });
+
+            document.querySelectorAll('a, button, input, textarea').forEach((element) => {
+                element.addEventListener('mouseenter', () => cursorGlow.classList.add('is-hovering'));
+                element.addEventListener('mouseleave', () => cursorGlow.classList.remove('is-hovering'));
+            });
+        }
+
+        initializeCursorGlow();
+
+        // System Boot Sequence Logic
+        window.onload = function () {
+            const logsContainer = document.getElementById('startup-logs');
+            const startupBar = document.getElementById('startup-bar');
+            const startupScreen = document.getElementById('startup-screen');
+
+            const bootLogs = [
+                "[OK] Initializing DevOps Kernel 6.1...",
+                "[OK] Loading AWS & Kubernetes Modules...",
+                "[OK] Mounting GitOps Pipeline Artifacts...",
+                "[OK] Verifying Terraform State & Prometheus Metrics...",
+                "[OK] Portfolio Environment Ready!"
+            ];
+
+            let step = 0;
+            const interval = setInterval(() => {
+                step++;
+                if (step < bootLogs.length) {
+                    const logEntry = document.createElement('div');
+                    logEntry.className = 'text-emerald-400 flex items-center gap-2';
+                    logEntry.innerHTML = `<span>[OK]</span> <span>${bootLogs[step].replace('[OK] ', '')}</span>`;
+                    logsContainer.appendChild(logEntry);
+                    startupBar.style.width = `${(step / (bootLogs.length - 1)) * 100}%`;
+                } else {
+                    clearInterval(interval);
+                    setTimeout(() => {
+                        startupScreen.classList.add('opacity-0', 'pointer-events-none');
+                        setTimeout(() => {
+                            startupScreen.style.display = 'none';
+                        }, 500);
+                    }, 400);
+                }
+            }, 300);
+        };
+
+        // Theme Toggle Logic
+        function toggleTheme() {
+            const html = document.documentElement;
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+
+            const isDark = html.classList.contains('dark');
+            if (isDark) {
+                html.classList.remove('dark');
+                if (sunIcon) sunIcon.classList.add('hidden');
+                if (moonIcon) moonIcon.classList.remove('hidden');
+            } else {
+                html.classList.add('dark');
+                if (sunIcon) sunIcon.classList.remove('hidden');
+                if (moonIcon) moonIcon.classList.add('hidden');
+            }
+
+            localStorage.setItem('portfolio-theme', html.classList.contains('dark') ? 'dark' : 'light');
+        }
+
+        function applySavedTheme() {
+            const savedTheme = localStorage.getItem('portfolio-theme');
+            const html = document.documentElement;
+            const sunIcon = document.getElementById('theme-icon-sun');
+            const moonIcon = document.getElementById('theme-icon-moon');
+
+            if (savedTheme === 'light') {
+                html.classList.remove('dark');
+                if (sunIcon) sunIcon.classList.add('hidden');
+                if (moonIcon) moonIcon.classList.remove('hidden');
+            } else {
+                html.classList.add('dark');
+                if (sunIcon) sunIcon.classList.remove('hidden');
+                if (moonIcon) moonIcon.classList.add('hidden');
+            }
+        }
+
+        function setActiveNavLink() {
+            const sections = ['hero', 'profile', 'projects', 'skills', 'contact'];
+            const links = document.querySelectorAll('.nav-link');
+            let currentSection = 'hero';
+
+            sections.forEach((id) => {
+                const section = document.getElementById(id);
+                if (!section) return;
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 140 && rect.bottom >= 140) {
+                    currentSection = id;
+                }
+            });
+
+            links.forEach((link) => {
+                const href = link.getAttribute('href');
+                link.classList.toggle('active', href === `#${currentSection}`);
+            });
+        }
+
+        applySavedTheme();
+        setActiveNavLink();
+        window.addEventListener('scroll', setActiveNavLink, { passive: true });
+
         // Mobile Menu Toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', function () {
+        function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             menu.classList.toggle('hidden');
-        });
+        }
 
-        // -------------------------------------------------------------
-        // Skill Category Filter Logic
-        // -------------------------------------------------------------
+        // Skill Filtering Logic
         function filterSkills(category) {
+            const cards = document.querySelectorAll('.skill-card');
             const buttons = document.querySelectorAll('.skill-filter-btn');
+
             buttons.forEach(btn => {
                 if (btn.getAttribute('data-category') === category) {
                     btn.className = "skill-filter-btn active px-4 py-2 rounded-xl bg-emerald-500 text-slate-950 font-bold transition-all shadow-md shadow-emerald-500/20";
                 } else {
-                    btn.className = "skill-filter-btn px-4 py-2 rounded-xl bg-slate-900/90 text-slate-300 border border-slate-800 hover:border-emerald-500/40 hover:text-white transition-all";
+                    btn.className = "skill-filter-btn px-4 py-2 rounded-xl bg-white dark:bg-slate-900/90 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-800 hover:border-emerald-500/40 hover:text-emerald-600 dark:hover:text-white transition-all shadow-sm";
                 }
             });
 
-            const cards = document.querySelectorAll('.skill-card');
             cards.forEach(card => {
-                const cat = card.getAttribute('data-cat');
-                if (category === 'all' || cat === category) {
+                const cardCategory = card.getAttribute('data-category');
+                if (category === 'all' || cardCategory.includes(category)) {
                     card.style.display = 'block';
                 } else {
                     card.style.display = 'none';
@@ -1171,35 +1765,39 @@
             });
         }
 
-        // -------------------------------------------------------------
-        // Architecture Component Inspector Handler
-        // -------------------------------------------------------------
+        // Modal Handlers
         function openModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-            }
+            document.getElementById(id).classList.remove('hidden');
         }
 
         function closeModal(id) {
-            const modal = document.getElementById(id);
-            if (modal) {
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-            }
+            document.getElementById(id).classList.add('hidden');
         }
 
+        // Copy Email Helper
+        function copyEmail() {
+            const emailText = document.getElementById('contact-email').innerText;
+            const tempInput = document.createElement('input');
+            tempInput.value = emailText;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempInput);
+
+            const alertBox = document.createElement('div');
+            alertBox.className = 'fixed bottom-5 right-5 z-50 bg-emerald-500 text-slate-950 px-4 py-2 rounded-lg font-mono text-xs font-bold shadow-lg';
+            alertBox.innerText = 'Email copied to clipboard!';
+            document.body.appendChild(alertBox);
+            setTimeout(() => alertBox.remove(), 2500);
+        }
+
+        // Contact Form Submission Handler
         function handleFormSubmit(event) {
             event.preventDefault();
-            document.getElementById('contact-form').classList.add('hidden');
-            document.getElementById('form-success').classList.remove('hidden');
-        }
-
-        function resetContactForm() {
+            const alertBox = document.getElementById('form-alert');
+            alertBox.className = "p-3 rounded-lg text-xs font-mono bg-emerald-500/10 border border-emerald-500/30 text-emerald-600 dark:text-emerald-400 block";
+            alertBox.innerText = "Thank you! Your message has been received. I will get back to you shortly.";
             document.getElementById('contact-form').reset();
-            document.getElementById('contact-form').classList.remove('hidden');
-            document.getElementById('form-success').classList.add('hidden');
         }
     </script>
 </body>
